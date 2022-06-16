@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="keywords" content="">
+<meta name="description" content="Kruskal 重构树简介Kruskal重构树其实就是在Kruscal算法进行的过程中，每一次加边都会合并两个集合，我们可以新建一个点，将这个点的点权设为新加的边的权值，同时将两个集合的根节点分别设为新建的点的左儿子和右儿子。然后将两个集合和新建点合并成一个集合。将新建点设为根。 这样建成的一棵二叉树就是Kruskal重构树。 如：  此图的Kruskal重构树如下：  性质  该树满足二叉堆的性">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kruskal重构树">
+<meta property="og:url" content="http://example.com/2022/06/13/Kruskal%E9%87%8D%E6%9E%84%E6%A0%91/index.html">
+<meta property="og:site_name" content="Jekyll_Y的小窝">
+<meta property="og:description" content="Kruskal 重构树简介Kruskal重构树其实就是在Kruscal算法进行的过程中，每一次加边都会合并两个集合，我们可以新建一个点，将这个点的点权设为新加的边的权值，同时将两个集合的根节点分别设为新建的点的左儿子和右儿子。然后将两个集合和新建点合并成一个集合。将新建点设为根。 这样建成的一棵二叉树就是Kruskal重构树。 如：  此图的Kruskal重构树如下：  性质  该树满足二叉堆的性">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://z4a.net/images/2022/06/16/97298709_p0---.jpg">
+<meta property="article:published_time" content="2022-06-13T14:44:55.000Z">
+<meta property="article:modified_time" content="2022-06-16T14:38:32.681Z">
+<meta property="article:author" content="Jekyll_Y">
+<meta property="article:tag" content="图论">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://z4a.net/images/2022/06/16/97298709_p0---.jpg">
+
+    <meta name="description" content="Doctor,您还有很多事情要做,现在还不能休息哦.">
+
+<title>
+    Kruskal重构树
+</title>
+
+    <link rel="icon" type="image/png" sizes="16x16" href="https://s2.loli.net/2022/06/16/tYjEKklV2yFiIPx.jpg?v=1.0.2">
+
+
+    <link rel="icon" type="image/png" sizes="32x32" href="https://s2.loli.net/2022/06/16/tYjEKklV2yFiIPx.jpg?v=1.0.2">
+
+
+
+<link rel="preload" href="//at.alicdn.com/t/font_1518765_bkgx3wku6h4.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1518765_bkgx3wku6h4.css">
+
+
+<link rel="stylesheet" href="/css/plugins/bootstrap.min.css">
+<link rel="stylesheet" href="/css/plugins/locomotive-scroll.css">
+<link rel="stylesheet" href="/css/plugins/swiper.min.css">
+<link rel="stylesheet" href="/css/plugins/fancybox.min.css">
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+<!-- variable -->
+<script>window.TYPED_TEXT=[
+  "and A Doctor"
+]</script>
+<script>window.FAVICON={
+  "icon16": "https://s2.loli.net/2022/06/16/tYjEKklV2yFiIPx.jpg",
+  "icon32": "https://s2.loli.net/2022/06/16/tYjEKklV2yFiIPx.jpg",
+  "appleTouchIcon": null,
+  "webmanifest": null,
+  "visibilitychange": true,
+  "hidden": null,
+  "showText": "(/≧▽≦/)咦！又好了！",
+  "hideText": "(●—●)喔哟，崩溃啦！"
+}</script>
+<script>window.HTMEM_VERSION='1.0.2'</script>
+<link data-theme-type="style-light" rel="stylesheet" href="/css/style-light.css?v=1.0.2" id="trm-switch-style">
+<link data-theme-type="style-dark" rel="stylesheet" href="/css/style-dark.css?v=1.0.2" id="trm-switch-style">
+
+<!-- theme css -->
+<script>
+    let themeMode = localStorage.getItem('theme-mode') === 'style-dark' ? 'style-light' : 'style-dark';
+    let linkdom = document.querySelector('[data-theme-type='+themeMode+']');
+    if(linkdom) linkdom.remove();
+</script>
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation"><i class="far fa-sun"></i>
+        <div class="trm-horizon"></div>
+        <i class="far fa-moon"></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" data-scroll-container style="opacity: 0">
+          <div data-scroll-section id="content" class="trm-scroll-section">
+            <!-- top bar -->
+            <div class="trm-top-bar" data-scroll data-scroll-sticky data-scroll-target="#content" data-scroll-offset="-10">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+			<a href="/" class="trm-logo-frame trm-anima-link">
+				<img src="https://s2.loli.net/2022/06/16/tYjEKklV2yFiIPx.jpg" alt="logo">
+				<div class="trm-logo-text">
+					Yang
+					<span>Jekyll</span>
+				</div>
+			</a>
+			<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+
+			<!-- menu -->
+			<div class="trm-menu">
+				<nav>
+					<ul>
+						
+						<li class="menu-item-has-children ">
+							<a  href="/">
+								首页
+							</a>
+							
+						</li>
+						
+						<li class="menu-item-has-children ">
+							<a  href="/archives/">
+								归档
+							</a>
+							
+						</li>
+						
+						<li class="menu-item-has-children ">
+							<a  href="/links/">
+								友链
+							</a>
+							
+						</li>
+						
+						<li class="menu-item-has-children ">
+							<a  href="/about/">
+								关于
+							</a>
+							
+						</li>
+						
+					</ul>
+				</nav>
+			</div>
+			<!-- menu end -->
+
+			<!-- mode switcher place -->
+			<div class="trm-mode-switcher-place"></div>
+			<!-- mode switcher place end -->
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</div>
+            <!-- top bar end -->
+
+            <!-- body -->
+            <div class="trm-content-start">
+
+    <!-- banner -->
+    <div class="trm-banner" data-scroll data-scroll-direction="vertical">
+    <!-- banner cover -->
+    <img src="https://s2.loli.net/2022/06/09/BEzraTkQxNFvuG3.jpg" alt="banner" class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-3">
+    <!-- banner cover end -->
+
+    <!-- banner slideshow cover-->
+    <!-- <div class="swiper-container trm-slideshow" data-scroll data-scroll-direction="vertical" data-scroll-speed="-4">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="/img/blog/b1.jpg" alt="banner" class="trm-banner-cover" data-swiper-parallax-y="-200" data-swiper-parallax-scale="1.2"></div>
+            <div class="swiper-slide"><img src="/img/blog/b2.jpg" alt="banner" class="trm-banner-cover" data-swiper-parallax-y="-200" data-swiper-parallax-scale="1.2"></div>
+            <div class="swiper-slide"><img src="/img/blog/b3.jpg" alt="banner" class="trm-banner-cover" data-swiper-parallax-y="-200" data-swiper-parallax-scale="1.2"></div>
+        </div>
+    </div> -->
+    <!-- banner slideshow cover end -->
+
+    <!-- banner video cover -->
+    <!-- <video autoplay="autoplay" loop muted playsinline webkit-playinginline class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-4">
+        <source src="img/banner.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+        <source src="img/banner.webm" type='video/webm; codecs="vp8, vorbis"'>
+        <source src="img/banner.ogg" type='video/ogg; codecs="theora, vorbis"'>
+        Your browser does not support HTML5 video.
+    </video> -->
+    <!-- banner video cover end -->
+
+    <!-- banner cover end -->
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container" data-scroll data-scroll-direction="vertical" data-scroll-speed="0">
+            <div class="row">
+                <div class="col-lg-4"></div>
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text">
+                        <div class="trm-label trm-mb-20">
+                            NEWS LETTER
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            Kruskal重构树
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2022
+                                    </span
+                                ></li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <a href="#about-triger" data-scroll-to="#about-triger" data-scroll-offset="-130" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </a>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <!-- main card -->
+                <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card" data-scroll data-scroll-repeat data-scroll-sticky data-scroll-target="#content" data-scroll-offset="60">
+        <!-- card header -->
+        <div class="trm-mc-header">
+            <div class="trm-avatar-frame trm-mb-20"><img class="trm-avatar" src="https://s2.loli.net/2022/06/09/iDk4sYynCP83ed1.jpg" alt="Avatar"> </div>
+            <h5 class="trm-name trm-mb-15">
+                Jekyll_Y
+            </h5>
+            <div class="trm-label">
+                An OIer
+                <span class="trm-typed-text">
+                    <!-- Words for theme.user.typedText -->
+                </span>
+            </div>
+        </div>
+        <!-- card header end -->
+        <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+        <!-- sidebar social -->
+        <div class="trm-social">
+            
+                <a href="https://jekyll-y.github.io/" rel="nofollow" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+            
+        </div>
+        <!-- sidebar social end -->
+        <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+        <!-- info -->
+        <ul class="trm-table trm-mb-20">
+            
+                <li>
+                    <div class="trm-label">
+                        Residence:
+                    </div>
+                    <div class="trm-label trm-label-light">
+                        泰拉
+                    </div>
+                </li>
+            
+                <li>
+                    <div class="trm-label">
+                        City:
+                    </div>
+                    <div class="trm-label trm-label-light">
+                        Rhodes Island
+                    </div>
+                </li>
+            
+                <li>
+                    <div class="trm-label">
+                        Age:
+                    </div>
+                    <div class="trm-label trm-label-light">
+                        114514
+                    </div>
+                </li>
+            
+        </ul>
+        
+    </div>
+</div>
+                <!-- main card end -->
+            </div>
+            <div class="col-lg-8">
+                <!-- content -->
+                <div class="trm-content" id="trm-content">
+                    <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger"></div>
+                    
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="trm-card trm-label trm-label-light text-center"><i class="far fa-calendar-alt trm-icon"></i><br>
+                                06/13
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="trm-card trm-label trm-label-light text-center"><i class="far fa-clock trm-icon"></i><br>
+                                10:44
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="trm-card trm-label trm-label-light text-center"><i class="far fa-user trm-icon"></i><br>
+                                Jekyll_Y
+                            </div>
+                        </div>
+                    </div>
+
+                    <article class="trm-card trm-publication">
+                        <h1 id="Kruskal-重构树"><a href="#Kruskal-重构树" class="headerlink" title="Kruskal 重构树"></a>Kruskal 重构树</h1><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Kruskal重构树其实就是在Kruscal算法进行的过程中，每一次加边都会合并两个集合，我们可以新建一个点，将这个点的点权设为新加的边的权值，同时将两个集合的根节点分别设为新建的点的左儿子和右儿子。然后将两个集合和新建点合并成一个集合。将新建点设为根。</p>
+<p>这样建成的一棵二叉树就是Kruskal重构树。</p>
+<p>如：</p>
+<p><img src="https://oi-wiki.org/graph/images/mst5.png"></p>
+<p>此图的Kruskal重构树如下：</p>
+<p><img src="https://oi-wiki.org/graph/images/mst6.png"></p>
+<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><blockquote>
+<ul>
+<li>该树满足二叉堆的性质；</li>
+<li>这颗二叉树的节点个数为$2n-1$ ，深度最大为$n$;</li>
+<li>重构树中代表原树中的点的节点全是叶子节点，其余节点都代表了一条边的边权；</li>
+<li><strong>原图中两个点之间的所有简单路径上最大边权的最小值 &#x3D; Kruskal 重构树上两点之间的 LCA 的权值</strong>。</li>
+</ul>
+</blockquote>
+<p>因为在加边的时候所有的边都是已经排序过的所以<strong>符合二叉堆</strong>的性质。</p>
+<p>又因为二叉堆的性质所以<strong>Kruskal 重构树上两点之间的 LCA 的权值即为原图中两个点之间的所有简单路径上最大边权的最小值</strong>。</p>
+<p><strong>若求两个点之间的所有简单路径上最小边权的最大值，要建最大生成树</strong>。</p>
+<h3 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h3><p>首先对边排序</p>
+<p>然后使用并查集辅助加边：</p>
+<p>每新建一条边时，新建一个点，设新建点的权值为新加边的边权，合并集合。</p>
+<p>代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">kruskal</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">sort</span>(e+<span class="number">1</span>,e+m+<span class="number">1</span>,cmp);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n*<span class="number">2</span>;i++)f[i]=i;<span class="comment">// 2n-1个节点</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(cnt==<span class="number">2</span>*n<span class="number">-1</span>)<span class="keyword">break</span>;</span><br><span class="line">        <span class="type">int</span> x=<span class="built_in">Find</span>(e[i].u),y=<span class="built_in">Find</span>(e[i].v);</span><br><span class="line">        <span class="keyword">if</span>(x==y)<span class="keyword">continue</span>;</span><br><span class="line">        cnt++;</span><br><span class="line">        f[x]=f[y]=cnt;</span><br><span class="line">        tree[cnt].<span class="built_in">push_back</span>(y);</span><br><span class="line">        tree[cnt].<span class="built_in">push_back</span>(x);</span><br><span class="line">        w[cnt]=e[i].c;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>时间复杂度$O(nlog_2n)$。</p>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>**Kruskal重构树能够更快有效解决一些静态的树剖问题，而且复杂度还很优秀。 **</p>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/U92652">luogu U92652 【模板】Kruskal重构树</a></p>
+<p>一道板子题（<strong>注意建成的应是一个森林</strong>）。</p>
+<p>代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> Max=<span class="number">300010</span>;</span><br><span class="line"><span class="type">int</span> n,m,q,cnt;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span>&#123;</span><br><span class="line">    <span class="type">int</span> u,v,c;</span><br><span class="line">&#125;e[Max];</span><br><span class="line"><span class="type">int</span> f[Max*<span class="number">2</span>],w[Max*<span class="number">2</span>],lg[Max*<span class="number">2</span>];</span><br><span class="line"><span class="type">int</span> depth[Max*<span class="number">2</span>],fa[Max*<span class="number">2</span>][<span class="number">30</span>];</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; mp[Max*<span class="number">2</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">cmp</span><span class="params">(node x,node y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x.c&lt;y.c;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Find</span><span class="params">(<span class="type">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x==f[x])<span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">return</span> f[x]=<span class="built_in">Find</span>(f[x]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">kruskal</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n*<span class="number">2</span>;i++)f[i]=i;</span><br><span class="line">    <span class="built_in">sort</span>(e+<span class="number">1</span>,e+m+<span class="number">1</span>,cmp);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> x=<span class="built_in">Find</span>(e[i].u),y=<span class="built_in">Find</span>(e[i].v);</span><br><span class="line">        <span class="keyword">if</span>(x==y)<span class="keyword">continue</span>;</span><br><span class="line">        cnt++;</span><br><span class="line">        f[x]=cnt;f[y]=cnt;</span><br><span class="line">        w[cnt]=e[i].c;</span><br><span class="line">        mp[cnt].<span class="built_in">push_back</span>(x);</span><br><span class="line">        mp[cnt].<span class="built_in">push_back</span>(y);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> now,<span class="type">int</span> father)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    depth[now]=depth[father]+<span class="number">1</span>;</span><br><span class="line">    fa[now][<span class="number">0</span>]=father;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=lg[depth[now]];i++)</span><br><span class="line">        fa[now][i]=fa[fa[now][i<span class="number">-1</span>]][i<span class="number">-1</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;mp[now].<span class="built_in">size</span>();i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> x=mp[now][i];</span><br><span class="line">        <span class="keyword">if</span>(depth[x])<span class="keyword">continue</span>;</span><br><span class="line">        <span class="built_in">dfs</span>(x,now);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">LCA</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">Find</span>(x)!=<span class="built_in">Find</span>(y))<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span>(depth[x]&lt;depth[y])<span class="built_in">swap</span>(x,y);</span><br><span class="line">    <span class="keyword">while</span>(depth[x]&gt;depth[y])</span><br><span class="line">        x=fa[x][lg[depth[x]-depth[y]]];</span><br><span class="line">    <span class="keyword">if</span>(x==y)<span class="keyword">return</span> w[x];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=lg[depth[x]];i&gt;=<span class="number">0</span>;i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(fa[x][i]==fa[y][i])<span class="keyword">continue</span>;</span><br><span class="line">        x=fa[x][i];</span><br><span class="line">        y=fa[y][i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> w[fa[x][<span class="number">0</span>]];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>,&amp;n,&amp;m,&amp;q);</span><br><span class="line">    cnt=n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>,&amp;e[i].u,&amp;e[i].v,&amp;e[i].c);</span><br><span class="line">    <span class="built_in">kruskal</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        lg[i]=lg[i<span class="number">-1</span>]+(i==<span class="number">1</span>&lt;&lt;(lg[i<span class="number">-1</span>]+<span class="number">1</span>));</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=cnt;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(f[i]!=i)<span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">if</span>(depth[f[i]])<span class="keyword">continue</span>;</span><br><span class="line">        <span class="built_in">dfs</span>(f[i],<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=q;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> x,y;<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;x,&amp;y);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,<span class="built_in">LCA</span>(x,y));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1967">luogu P1967 货车运输</a></p>
+<p>其实该问题可以转换为<strong>求$x$号城市到$y$号城市所有简单路径上小边权的最大值</strong>（注意该图建成的为一个森林）。</p>
+<p>代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxn=<span class="number">1e4</span>+<span class="number">10</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxm=<span class="number">5e4</span>+<span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> n,m,q,cnt;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span>&#123;</span><br><span class="line">    <span class="type">int</span> u,v,c;</span><br><span class="line">&#125;e[maxm];</span><br><span class="line"><span class="type">int</span> f[maxn*<span class="number">2</span>],depth[maxn*<span class="number">2</span>],father[maxn*<span class="number">2</span>][<span class="number">30</span>];</span><br><span class="line"><span class="type">int</span> lg[maxn*<span class="number">2</span>],w[maxn*<span class="number">2</span>];</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; mp[maxn*<span class="number">2</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">cmp</span><span class="params">(node x,node y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x.c&gt;y.c;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Find</span><span class="params">(<span class="type">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x==f[x])<span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">return</span> f[x]=<span class="built_in">Find</span>(f[x]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">kruscal</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n*<span class="number">2</span>;i++)f[i]=i;</span><br><span class="line">    <span class="built_in">sort</span>(e+<span class="number">1</span>,e+m+<span class="number">1</span>,cmp);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> x=<span class="built_in">Find</span>(e[i].u),y=<span class="built_in">Find</span>(e[i].v);</span><br><span class="line">        <span class="keyword">if</span>(x==y)<span class="keyword">continue</span>;</span><br><span class="line">        cnt++;</span><br><span class="line">        f[x]=f[y]=cnt;w[cnt]=e[i].c;</span><br><span class="line">        mp[cnt].<span class="built_in">push_back</span>(x);</span><br><span class="line">        mp[cnt].<span class="built_in">push_back</span>(y);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> now,<span class="type">int</span> fa)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    depth[now]=depth[fa]+<span class="number">1</span>;</span><br><span class="line">    father[now][<span class="number">0</span>]=fa;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=lg[depth[now]];i++)</span><br><span class="line">        father[now][i]=father[father[now][i<span class="number">-1</span>]][i<span class="number">-1</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;mp[now].<span class="built_in">size</span>();i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> x=mp[now][i];</span><br><span class="line">        <span class="keyword">if</span>(depth[x])<span class="keyword">continue</span>;</span><br><span class="line">        <span class="built_in">dfs</span>(x,now);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">LCA</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">Find</span>(x)!=<span class="built_in">Find</span>(y))<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span>(depth[x]&lt;depth[y])<span class="built_in">swap</span>(x,y);</span><br><span class="line">    <span class="keyword">while</span>(depth[x]&gt;depth[y])</span><br><span class="line">        x=father[x][lg[depth[x]-depth[y]]];</span><br><span class="line">    <span class="keyword">if</span>(x==y)<span class="keyword">return</span> w[x];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=lg[depth[x]];i&gt;=<span class="number">0</span>;i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(father[x][i]==father[y][i])<span class="keyword">continue</span>;</span><br><span class="line">        x=father[x][i];y=father[y][i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> w[father[x][<span class="number">0</span>]];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;m);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>,&amp;e[i].u,&amp;e[i].v,&amp;e[i].c);</span><br><span class="line">    cnt=n;</span><br><span class="line">    <span class="built_in">kruscal</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        lg[i]=lg[i<span class="number">-1</span>]+(i==<span class="number">1</span>&lt;&lt;(lg[i<span class="number">-1</span>]+<span class="number">1</span>));</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=cnt;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(f[i]!=i)<span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">if</span>(depth[f[i]])<span class="keyword">continue</span>;</span><br><span class="line">        <span class="built_in">dfs</span>(f[i],<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;q);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=q;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> x,y;<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;x,&amp;y);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,<span class="built_in">LCA</span>(x,y));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4768">luogu P4768 [NOI2018] 归程</a></p>
+<p>这道题主要在于求<strong>最小的步行路程，不用考虑开车所经过的路程</strong>。</p>
+<p>所以我们只需要<strong>两点之间路径上的边权最小值最大</strong>即可，设这个值为$h$,若$h&gt;S$,则步行路程为零，若$h\le S$，我们便需要去判断在哪里下车。</p>
+<p>在Kruskal重构树中，<strong>任意节点的子树节点都是可以相互抵达</strong>的，所以我们可以用树上倍增去求出，这棵树上<strong>大于水位线的最小值</strong>，然后输出这个节点子树中，到达终点的最短路的最小值。</p>
+<p>最短路+树上倍增+Kruskal重构树。</p>
+<p>代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxn=<span class="number">2e5</span>+<span class="number">10</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxm=<span class="number">4e5</span>+<span class="number">10</span>;</span><br><span class="line"><span class="type">const</span> ll INF=<span class="number">5147483647</span>;</span><br><span class="line"><span class="type">int</span> T,n,m,q,k,s,cnt;ll lastans;</span><br><span class="line"><span class="type">int</span> f[maxn*<span class="number">2</span>],lg[maxn];</span><br><span class="line"><span class="type">int</span> depth[maxn*<span class="number">2</span>],fa[maxn*<span class="number">2</span>][<span class="number">31</span>];</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span>&#123;</span><br><span class="line">    <span class="type">int</span> u,v,l,a;</span><br><span class="line">&#125;e[maxm];</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">road</span>&#123;</span><br><span class="line">    <span class="type">int</span> to,cost;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">power</span>&#123;</span><br><span class="line">    ll w,l;</span><br><span class="line">&#125;p[maxn*<span class="number">2</span>];</span><br><span class="line">vector&lt;road&gt; mp[maxn];</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; tree[maxn*<span class="number">2</span>];</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;ll,<span class="type">int</span>&gt; Pair;</span><br><span class="line"><span class="type">void</span> _clean()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">memset</span>(f,<span class="number">0</span>,<span class="built_in">sizeof</span>(f));</span><br><span class="line">    <span class="built_in">memset</span>(depth,<span class="number">0</span>,<span class="built_in">sizeof</span>(depth));</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;=cnt;i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;=<span class="number">30</span>;j++)</span><br><span class="line">            fa[i][j]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)mp[i].<span class="built_in">clear</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=cnt;i++)tree[i].<span class="built_in">clear</span>();</span><br><span class="line">    cnt=<span class="number">0</span>;lastans=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">makelog</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=maxn;i++)</span><br><span class="line">        lg[i]=lg[i<span class="number">-1</span>]+(i==<span class="number">1</span>&lt;&lt;(lg[i<span class="number">-1</span>]+<span class="number">1</span>));</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(node x,node y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x.a&gt;y.a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Find</span><span class="params">(<span class="type">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x==f[x])<span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">return</span> f[x]=<span class="built_in">Find</span>(f[x]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">kruscal</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">sort</span>(e+<span class="number">1</span>,e+m+<span class="number">1</span>,cmp);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n*<span class="number">2</span>;i++)f[i]=i;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(cnt==<span class="number">2</span>*n<span class="number">-1</span>)<span class="keyword">break</span>;</span><br><span class="line">        <span class="type">int</span> x=<span class="built_in">Find</span>(e[i].u),y=<span class="built_in">Find</span>(e[i].v);</span><br><span class="line">        <span class="keyword">if</span>(x==y)<span class="keyword">continue</span>;</span><br><span class="line">        cnt++;</span><br><span class="line">        f[x]=f[y]=cnt;</span><br><span class="line">        tree[cnt].<span class="built_in">push_back</span>(y);</span><br><span class="line">        tree[cnt].<span class="built_in">push_back</span>(x);</span><br><span class="line">        p[cnt].w=e[i].a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=cnt;i++)p[i].l=INF;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dij</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    priority_queue&lt;Pair,vector&lt;Pair&gt;,greater&lt;Pair&gt; &gt; q;</span><br><span class="line">    <span class="type">bool</span> vis[maxn];ll dis[maxn];</span><br><span class="line">    <span class="built_in">memset</span>(vis,<span class="literal">false</span>,<span class="built_in">sizeof</span>(vis));</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)dis[i]=INF;</span><br><span class="line">    dis[<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line">    q.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(<span class="number">0</span>,<span class="number">1</span>));</span><br><span class="line">    <span class="keyword">while</span>(!q.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> x=q.<span class="built_in">top</span>().second;</span><br><span class="line">        <span class="type">int</span> c=q.<span class="built_in">top</span>().first;</span><br><span class="line">        q.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span>(vis[x])<span class="keyword">continue</span>;</span><br><span class="line">        vis[x]=<span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;mp[x].<span class="built_in">size</span>();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(dis[mp[x][i].to]&gt;dis[x]+mp[x][i].cost)</span><br><span class="line">            &#123;</span><br><span class="line">                dis[mp[x][i].to]=dis[x]+mp[x][i].cost;</span><br><span class="line">                q.<span class="built_in">push</span>(<span class="built_in">make_pair</span>(dis[mp[x][i].to],mp[x][i].to));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)p[i].l=dis[i];</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> now,<span class="type">int</span> father)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    depth[now]=depth[father]+<span class="number">1</span>;</span><br><span class="line">    fa[now][<span class="number">0</span>]=father;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=lg[depth[now]];i++)</span><br><span class="line">        fa[now][i]=fa[fa[now][i<span class="number">-1</span>]][i<span class="number">-1</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;tree[now].<span class="built_in">size</span>();i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">dfs</span>(tree[now][i],now);</span><br><span class="line">        p[now].l=<span class="built_in">min</span>(p[now].l,p[tree[now][i]].l);<span class="comment">// 更新最短路最小值</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">ask</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=lg[depth[x]];i&gt;=<span class="number">0</span>;i--)</span><br><span class="line">        <span class="keyword">if</span>(p[fa[x][i]].w&gt;y)x=fa[x][i];</span><br><span class="line">    <span class="keyword">return</span> p[x].l;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">makelog</span>();</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;T);</span><br><span class="line">    <span class="keyword">while</span>(T--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;m);</span><br><span class="line">        cnt=n;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d%d&quot;</span>,&amp;e[i].u,&amp;e[i].v,&amp;e[i].l,&amp;e[i].a);</span><br><span class="line">            mp[e[i].u].<span class="built_in">push_back</span>((road)&#123;e[i].v,e[i].l&#125;);</span><br><span class="line">            mp[e[i].v].<span class="built_in">push_back</span>((road)&#123;e[i].u,e[i].l&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">kruscal</span>();</span><br><span class="line">        <span class="built_in">dij</span>();</span><br><span class="line">        <span class="built_in">dfs</span>(cnt,<span class="number">0</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>,&amp;q,&amp;k,&amp;s);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=q;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> x,y;<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;x,&amp;y);</span><br><span class="line">            <span class="type">int</span> vx=(x+k*lastans<span class="number">-1</span>)%n+<span class="number">1</span>;</span><br><span class="line">            <span class="type">int</span> py=(y+k*lastans)%(s+<span class="number">1</span>);</span><br><span class="line">            lastans=<span class="built_in">ask</span>(vx,py);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,lastans);</span><br><span class="line">        &#125;</span><br><span class="line">        _clean();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>完结撒花~~</strong></p>
+
+                    </article>
+
+                    <!-- blog -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <!-- title -->
+                            <h5 class="trm-mb-40 trm-title-with-divider">
+                                Other Articles
+                                <span data-number="02"></span>
+                            </h5>
+                        </div>
+                        
+                            <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
+        <a href="/2022/06/13/A-star%E4%B8%8EIDA-star/" class="trm-cover-frame trm-anima-link">
+            <img src="https://s2.loli.net/2022/06/13/fRAybpX1TasKeCx.jpg" alt="cover">
+        </a>
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                    学习笔记
+                </a>
+            </div>
+            <h5>
+                <a href="/2022/06/13/A-star%E4%B8%8EIDA-star/" class="trm-anima-link">
+                    A-star与IDA-star
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>
+                    06/13
+                </li>
+                <li>
+                    10:56
+                </li>
+                <li>
+                    4.2k
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+                        
+                        
+                            <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
+        <a href="/2022/06/13/%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83/" class="trm-cover-frame trm-anima-link">
+            <img src="https://s2.loli.net/2022/06/13/atESCr4BTD7PsWi.png" alt="cover">
+        </a>
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                    学习笔记
+                </a>
+            </div>
+            <h5>
+                <a href="/2022/06/13/%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83/" class="trm-anima-link">
+                    高斯消元
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>
+                    06/13
+                </li>
+                <li>
+                    10:40
+                </li>
+                <li>
+                    1.2k
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+                        
+                    </div>
+                    <!-- blog end -->
+
+                    
+
+                    <div class="trm-divider trm-mb-40"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation" data-scroll data-scroll-offset="50">
+    <div class="trm-label">
+        ©  2022- 2022 ·
+        <span class="trm-accent-color">
+            Jekyll_Y
+        </span>
+    </div>
+    <div class="trm-label">
+        The blog has been lovely to run:
+        <span id="since" class="trm-accent-color"></span>
+        day
+    </div>
+</footer>
+<script>
+    function show_date_time () {
+        BirthDay = new Date("6/16/2022 22:17:36");
+        today = new Date();
+        timeold = (today.getTime() - BirthDay.getTime());
+        msPerDay = 24 * 60 * 60 * 1000
+        day = Math.floor(timeold / msPerDay)
+        since.innerHTML = day
+    }
+    show_date_time()
+</script>
+                    <!-- footer end -->
+                </div>
+                <!-- content end -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    
+  
+  
+            <!-- body end -->
+          </div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+
+      <!-- mode switcher -->
+      <div class="trm-hidden-switcher">
+        <div class="trm-mode-switcher"><i class="far fa-sun"></i>
+          <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+          <label class="trm-swich" for="trm-swich"></label>
+          <i class="far fa-moon"></i>
+        </div>
+      </div>
+      <!-- mode switcher end -->
+
+  </div>
+  <!-- app wrapper end -->
+
+  
+<script src="/js/plugins/jquery.min.js"></script>
+<script src="/js/plugins/swup.min.js"></script>
+<script src="/js/plugins/locomotive-scroll.js"></script>
+<script src="/js/plugins/typing.js"></script>
+<script src="/js/plugins/fancybox.min.js"></script>
+<script src="/js/plugins/swiper.min.js"></script>
+
+
+<!-- 评论插件 -->
+
+
+<!-- Service Worker -->
+
+
+<script src="/js/main.js?v=1.0.2"></script>
+
+
+</body>
+
+</html>
