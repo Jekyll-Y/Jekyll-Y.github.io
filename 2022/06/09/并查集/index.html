@@ -1,14 +1,22 @@
+
+
 <!DOCTYPE html>
-<html lang="">
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
 
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="x5-fullscreen" content="true">
-<meta name="full-screen" content="yes">
-<meta name="theme-color" content="#317EFB" />
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
-<meta name="keywords" content="">
-<meta name="description" content="并查集并查集（冰茶姬$Disjoint-Set$）是一种树形的数据结构，它可以处理一些不交集的合并以及查询问题。主要为两种操作： 查找（Find）：确定某个元素处于哪个子集； 合并（Merge）：将两个子集合并成一个集合。  初始化12345void makeSet(int size) &amp;#123;  for (int i &#x3D; 0; i &lt; size; i++) fa[i] &#x3D; i;  &#x2F;&#x2F;">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="https://s2.loli.net/2022/06/16/tYjEKklV2yFiIPx.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Jekyll_Y">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="并查集并查集（冰茶姬$Disjoint-Set$）是一种树形的数据结构，它可以处理一些不交集的合并以及查询问题。主要为两种操作： 查找（Find）：确定某个元素处于哪个子集； 合并（Merge）：将两个子集合并成一个集合。  初始化12345void makeSet(int size) &amp;#123;  for (int i &#x3D; 0; i &lt; size; i++) fa[i] &#x3D; i;  &#x2F;&#x2F;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="并查集">
 <meta property="og:url" content="http://example.com/2022/06/09/%E5%B9%B6%E6%9F%A5%E9%9B%86/index.html">
@@ -17,366 +25,317 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2022/06/09/HCY68tD4GPB7rTO.jpg">
 <meta property="article:published_time" content="2022-06-09T11:50:14.000Z">
-<meta property="article:modified_time" content="2022-06-17T11:58:48.785Z">
+<meta property="article:modified_time" content="2022-06-19T13:04:16.579Z">
 <meta property="article:author" content="Jekyll_Y">
 <meta property="article:tag" content="数据结构">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://s2.loli.net/2022/06/09/HCY68tD4GPB7rTO.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>并查集 - Jekyll_Y的小窝</title>
 
-    <meta name="description" content="Doctor,您还有很多事情要做,现在还不能休息哦.">
-
-<title>
-    并查集
-</title>
-
-    <link rel="icon" type="image/png" sizes="16x16" href="https://s2.loli.net/2022/06/16/tYjEKklV2yFiIPx.jpg?v=1.0.2">
-
-
-    <link rel="icon" type="image/png" sizes="32x32" href="https://s2.loli.net/2022/06/16/tYjEKklV2yFiIPx.jpg?v=1.0.2">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
 
-<link rel="preload" href="//at.alicdn.com/t/font_1518765_bkgx3wku6h4.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1518765_bkgx3wku6h4.css">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
-<link rel="stylesheet" href="/css/plugins/bootstrap.min.css">
-<link rel="stylesheet" href="/css/plugins/locomotive-scroll.css">
-<link rel="stylesheet" href="/css/plugins/swiper.min.css">
-<link rel="stylesheet" href="/css/plugins/fancybox.min.css">
-<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
 
 
-<!-- variable -->
-<script>window.TYPED_TEXT=[
-  "and A Doctor"
-]</script>
-<script>window.FAVICON={
-  "icon16": "https://s2.loli.net/2022/06/16/tYjEKklV2yFiIPx.jpg",
-  "icon32": "https://s2.loli.net/2022/06/16/tYjEKklV2yFiIPx.jpg",
-  "appleTouchIcon": null,
-  "webmanifest": null,
-  "visibilitychange": true,
-  "hidden": null,
-  "showText": "(/≧▽≦/)咦！又好了！",
-  "hideText": "(●—●)喔哟，崩溃啦！"
-}</script>
-<script>window.HTMEM_VERSION='1.0.2'</script>
-<link data-theme-type="style-light" rel="stylesheet" href="/css/style-light.css?v=1.0.2" id="trm-switch-style">
-<link data-theme-type="style-dark" rel="stylesheet" href="/css/style-dark.css?v=1.0.2" id="trm-switch-style">
 
-<!-- theme css -->
-<script>
-    let themeMode = localStorage.getItem('theme-mode') === 'style-dark' ? 'style-light' : 'style-dark';
-    let linkdom = document.querySelector('[data-theme-type='+themeMode+']');
-    if(linkdom) linkdom.remove();
-</script>
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
-<!-- Site Analytics -->
- 
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"c++"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
 <meta name="generator" content="Hexo 6.2.0"></head>
 
+
 <body>
+  
 
-  <!-- app wrapper -->
-  <div class="trm-app-frame">
+  <header>
+    
 
-    <!-- page preloader -->
-    <div class="trm-preloader">
-    <div class="trm-holder">
-        <div class="preloader">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
-</div>
-    <!-- page preloader end -->
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Jekyll_Y的小窝</strong>
+    </a>
 
-    <!-- change mode preloader -->
-    <div class="trm-mode-swich-animation-frame">
-    <div class="trm-mode-swich-animation"><i class="far fa-sun"></i>
-        <div class="trm-horizon"></div>
-        <i class="far fa-moon"></i>
-    </div>
-</div>
-    <!-- change mode preloader end -->
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
 
-      <!-- scroll container -->
-      <div id="trm-dynamic-content" class="trm-swup-animation">
-        <div id="trm-scroll-container" class="trm-scroll-container" data-scroll-container style="opacity: 0">
-          <div data-scroll-section id="content" class="trm-scroll-section">
-            <!-- top bar -->
-            <div class="trm-top-bar" data-scroll data-scroll-sticky data-scroll-target="#content" data-scroll-offset="-10">
-	<div class="container">
-		<div class="trm-left-side">
-			<!-- logo -->
-			<a href="/" class="trm-logo-frame trm-anima-link">
-				<img src="https://s2.loli.net/2022/06/16/tYjEKklV2yFiIPx.jpg" alt="logo">
-				<div class="trm-logo-text">
-					Yang
-					<span>Jekyll</span>
-				</div>
-			</a>
-			<!-- logo end -->
-		</div>
-		<div class="trm-right-side">
-
-			<!-- menu -->
-			<div class="trm-menu">
-				<nav>
-					<ul>
-						
-						<li class="menu-item-has-children ">
-							<a  href="/">
-								首页
-							</a>
-							
-						</li>
-						
-						<li class="menu-item-has-children ">
-							<a  href="/archives/">
-								归档
-							</a>
-							
-						</li>
-						
-						<li class="menu-item-has-children ">
-							<a  href="/links/">
-								友链
-							</a>
-							
-						</li>
-						
-						<li class="menu-item-has-children ">
-							<a  href="/about/">
-								关于
-							</a>
-							
-						</li>
-						
-					</ul>
-				</nav>
-			</div>
-			<!-- menu end -->
-
-			<!-- mode switcher place -->
-			<div class="trm-mode-switcher-place"></div>
-			<!-- mode switcher place end -->
-
-		</div>
-		<div class="trm-menu-btn">
-			<span></span>
-		</div>
-	</div>
-</div>
-            <!-- top bar end -->
-
-            <!-- body -->
-            <div class="trm-content-start">
-
-    <!-- banner -->
-    <div class="trm-banner" data-scroll data-scroll-direction="vertical">
-    <!-- banner cover -->
-    <img src="https://s2.loli.net/2022/06/09/BEzraTkQxNFvuG3.jpg" alt="banner" class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-3">
-    <!-- banner cover end -->
-
-    <!-- banner slideshow cover-->
-    <!-- <div class="swiper-container trm-slideshow" data-scroll data-scroll-direction="vertical" data-scroll-speed="-4">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="/img/blog/b1.jpg" alt="banner" class="trm-banner-cover" data-swiper-parallax-y="-200" data-swiper-parallax-scale="1.2"></div>
-            <div class="swiper-slide"><img src="/img/blog/b2.jpg" alt="banner" class="trm-banner-cover" data-swiper-parallax-y="-200" data-swiper-parallax-scale="1.2"></div>
-            <div class="swiper-slide"><img src="/img/blog/b3.jpg" alt="banner" class="trm-banner-cover" data-swiper-parallax-y="-200" data-swiper-parallax-scale="1.2"></div>
-        </div>
-    </div> -->
-    <!-- banner slideshow cover end -->
-
-    <!-- banner video cover -->
-    <!-- <video autoplay="autoplay" loop muted playsinline webkit-playinginline class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-4">
-        <source src="img/banner.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-        <source src="img/banner.webm" type='video/webm; codecs="vp8, vorbis"'>
-        <source src="img/banner.ogg" type='video/ogg; codecs="theora, vorbis"'>
-        Your browser does not support HTML5 video.
-    </video> -->
-    <!-- banner video cover end -->
-
-    <!-- banner cover end -->
-
-    <!-- banner content -->
-    <div class="trm-banner-content trm-overlay">
-        <div class="container" data-scroll data-scroll-direction="vertical" data-scroll-speed="0">
-            <div class="row">
-                <div class="col-lg-4"></div>
-                <div class="col-lg-8">
-
-                    <!-- banner title -->
-                    <div class="trm-banner-text">
-                        <div class="trm-label trm-mb-20">
-                            NEWS LETTER
-                        </div>
-                        <h1 class="trm-mb-30 trm-hsmb-font">
-                            并查集
-                        </h1>
-
-                        
-                            <ul class="trm-breadcrumbs trm-label">
-                                <li>
-                                    <a href="/" class="trm-anima-link">Home</a>
-                                </li>
-                                <li>
-                                    <span>
-                                        2022
-                                    </span
-                                ></li>
-                            </ul>
-                        
-                    </div>
-                    <!-- banner title end -->
-
-                    <!-- scroll hint -->
-                    <a href="#about-triger" data-scroll-to="#about-triger" data-scroll-offset="-130" class="trm-scroll-hint-frame">
-                        <div class="trm-scroll-hint"></div>
-                        <span class="trm-label">Scroll down</span>
-                    </a>
-                    <!-- scroll hint end -->
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- banner content end -->
-</div>
-    <!-- banner end -->
-
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4">
-                <!-- main card -->
-                <div class="trm-main-card-frame trm-sidebar">
-    <div class="trm-main-card" data-scroll data-scroll-repeat data-scroll-sticky data-scroll-target="#content" data-scroll-offset="60">
-        <!-- card header -->
-        <div class="trm-mc-header">
-            <div class="trm-avatar-frame trm-mb-20"><img class="trm-avatar" src="https://s2.loli.net/2022/06/09/iDk4sYynCP83ed1.jpg" alt="Avatar"> </div>
-            <h5 class="trm-name trm-mb-15">
-                Jekyll_Y
-            </h5>
-            <div class="trm-label">
-                An OIer
-                <span class="trm-typed-text">
-                    <!-- Words for theme.user.typedText -->
-                </span>
-            </div>
-        </div>
-        <!-- card header end -->
-        <div class="trm-divider trm-mb-40 trm-mt-40"></div>
-        <!-- sidebar social -->
-        <div class="trm-social">
-            
-                <a href="https://jekyll-y.github.io/" rel="nofollow" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-            
-        </div>
-        <!-- sidebar social end -->
-        <div class="trm-divider trm-mb-40 trm-mt-40"></div>
-        <!-- info -->
-        <ul class="trm-table trm-mb-20">
-            
-                <li>
-                    <div class="trm-label">
-                        Residence:
-                    </div>
-                    <div class="trm-label trm-label-light">
-                        泰拉
-                    </div>
-                </li>
-            
-                <li>
-                    <div class="trm-label">
-                        City:
-                    </div>
-                    <div class="trm-label trm-label-light">
-                        Rhodes Island
-                    </div>
-                </li>
-            
-                <li>
-                    <div class="trm-label">
-                        Age:
-                    </div>
-                    <div class="trm-label trm-label-light">
-                        114514
-                    </div>
-                </li>
-            
-        </ul>
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
     </div>
-</div>
-                <!-- main card end -->
-            </div>
-            <div class="col-lg-8">
-                <!-- content -->
-                <div class="trm-content" id="trm-content">
-                    <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger"></div>
-                    
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="trm-card trm-label trm-label-light text-center"><i class="far fa-calendar-alt trm-icon"></i><br>
-                                06/09
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="trm-card trm-label trm-label-light text-center"><i class="far fa-clock trm-icon"></i><br>
-                                07:50
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="trm-card trm-label trm-label-light text-center"><i class="far fa-user trm-icon"></i><br>
-                                Jekyll_Y
-                            </div>
-                        </div>
-                    </div>
+  </div>
+</nav>
 
-                    <article class="trm-card trm-publication">
-                        <h2 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h2><p>并查集（<del>冰茶姬</del>$Disjoint-Set$）是一种树形的数据结构，它可以处理一些不交集的<strong>合并</strong>以及<strong>查询</strong>问题。主要为两种操作：</p>
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://s2.loli.net/2022/06/09/HCY68tD4GPB7rTO.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="并查集"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Jekyll_Y
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-06-09 19:50" pubdate>
+          2022年6月9日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          11k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          95 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">并查集</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h2><p>并查集（<del>冰茶姬</del>$Disjoint-Set$）是一种树形的数据结构，它可以处理一些不交集的<strong>合并</strong>以及<strong>查询</strong>问题。主要为两种操作：</p>
 <p><strong>查找</strong>（Find）：确定某个元素处于哪个子集；</p>
 <p><strong>合并</strong>（Merge）：将两个子集合并成一个集合。</p>
-<p><img src="https://oi-wiki.org/ds/images/disjoint-set.svg" alt=""></p>
-<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">makeSet</span><span class="params">(<span class="type">int</span> size)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; size; i++) fa[i] = i;  <span class="comment">// i就在它本身的集合里</span></span><br><span class="line">  <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://oi-wiki.org/ds/images/disjoint-set.svg" srcset="/img/loading.gif" lazyload alt=""></p>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">makeSet</span><span class="hljs-params">(<span class="hljs-type">int</span> size)</span> </span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; size; i++) fa[i] = i;  <span class="hljs-comment">// i就在它本身的集合里</span><br>  <span class="hljs-keyword">return</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3><blockquote>
 <p>通俗地讲一个故事：几个家族进行宴会，但是家族普遍长寿，所以人数众多。由于长时间的分离以及年龄的增长，这些人逐渐忘掉了自己的亲人，只记得自己的爸爸是谁了，而最长者（称为「祖先」）的父亲已经去世，他只知道自己是祖先。为了确定自己是哪个家族，他们想出了一个办法，只要问自己的爸爸是不是祖先，一层一层的向上问，直到问到祖先。如果要判断两人是否在同一家族，只要看两人的祖先是不是同一人就可以了。</p>
 </blockquote>
 <p>在这样的思想下，并查集的查找算法诞生了。</p>
-<p><img src="https://oi-wiki.org/ds/images/disjoint-set-find.svg" alt=""></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> fa[MAXN];  <span class="comment">// 记录某个人的爸爸是谁，特别规定，祖先的爸爸是他自己</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> x)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="comment">// 寻找x的祖先</span></span><br><span class="line">  <span class="keyword">if</span> (fa[x] == x)  <span class="comment">// 如果x是祖先则返回</span></span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">find</span>(fa[x]);  <span class="comment">// 如果不是则x的爸爸问x的爷爷</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://oi-wiki.org/ds/images/disjoint-set-find.svg" srcset="/img/loading.gif" lazyload alt=""></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">int</span> fa[MAXN];  <span class="hljs-comment">// 记录某个人的爸爸是谁，特别规定，祖先的爸爸是他自己</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-comment">// 寻找x的祖先</span><br>  <span class="hljs-keyword">if</span> (fa[x] == x)  <span class="hljs-comment">// 如果x是祖先则返回</span><br>    <span class="hljs-keyword">return</span> x;<br>  <span class="hljs-keyword">else</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">find</span>(fa[x]);  <span class="hljs-comment">// 如果不是则x的爸爸问x的爷爷</span><br>&#125;<br></code></pre></td></tr></table></figure>
 <h3 id="路径压缩"><a href="#路径压缩" class="headerlink" title="路径压缩"></a>路径压缩</h3><p>一层一层的找父亲效率太低了，所以我们直接<strong>把在路径上的每个节点都直接连接到根上</strong>，这就是路径压缩。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> x)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (x != fa[x])  <span class="comment">// x不是自身的父亲，即x不是该集合的代表</span></span><br><span class="line">    fa[x] = <span class="built_in">find</span>(fa[x]);  <span class="comment">// 查找x的祖先直到找到代表,于是顺手路径压缩</span></span><br><span class="line">  <span class="keyword">return</span> fa[x];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-keyword">if</span> (x != fa[x])  <span class="hljs-comment">// x不是自身的父亲，即x不是该集合的代表</span><br>    fa[x] = <span class="hljs-built_in">find</span>(fa[x]);  <span class="hljs-comment">// 查找x的祖先直到找到代表,于是顺手路径压缩</span><br>  <span class="hljs-keyword">return</span> fa[x];<br>&#125;<br></code></pre></td></tr></table></figure>
 <h3 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h3><blockquote>
 <p>宴会上，一个家族的祖先突然对另一个家族说：我们两个家族交情这么好，不如合成一家好了。另一个家族也欣然接受了。</p>
 </blockquote>
 <p>我们之前说过，并不在意祖先究竟是谁，所以只要其中一个祖先变成另一个祖先的儿子就可以了。</p>
-<p><img src="https://oi-wiki.org/ds/images/disjoint-set-merge.svg" alt=""></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MergeSet</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="comment">// x 与 y 所在家族合并</span></span><br><span class="line">  x = <span class="built_in">find</span>(x);</span><br><span class="line">  y = <span class="built_in">find</span>(y);</span><br><span class="line">  fa[x] = y;  <span class="comment">// 把 x 的祖先变成 y 的祖先的儿子</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://oi-wiki.org/ds/images/disjoint-set-merge.svg" srcset="/img/loading.gif" lazyload alt=""></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">MergeSet</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> </span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-comment">// x 与 y 所在家族合并</span><br>  x = <span class="hljs-built_in">find</span>(x);<br>  y = <span class="hljs-built_in">find</span>(y);<br>  fa[x] = y;  <span class="hljs-comment">// 把 x 的祖先变成 y 的祖先的儿子</span><br>&#125;<br></code></pre></td></tr></table></figure>
 <h3 id="启发式合并"><a href="#启发式合并" class="headerlink" title="启发式合并"></a>启发式合并</h3><p>(<del>奇技淫巧</del>)</p>
 <p>在合并集合时，无论将哪一个集合连接到另一个集合的下面，都能得到正确的结果。但不同的连接方法存在时间复杂度的差异。</p>
 <p>所以合并时利用点数和深度的估价函数来降低<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/Atalod/shi-jian-fu-za-du-shi-neng-fen-xi-qian-tan#">时间复杂度</a>。</p>
 <blockquote>
 <p>“秩”：树的深度(未路径压缩) / 集合大小 。均摊复杂度 $O(logN)$。</p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//记录并初始化子树的大小为 1</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">MergeSet</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="type">int</span> x=<span class="built_in">find</span>(x), y=<span class="built_in">find</span>(y);</span><br><span class="line">  <span class="keyword">if</span> (x==y) <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">if</span> (size[x] &gt; size[y])  <span class="comment">// 保证小的合到大的里</span></span><br><span class="line">    <span class="built_in">swap</span>(x, y);</span><br><span class="line">  fa[x] = y;</span><br><span class="line">  size[y] += size[x];</span><br><span class="line">&#125;<span class="comment">//按大小合并</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> depth[maxn];<span class="comment">// 深度</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">MergeSet</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="type">int</span> x=<span class="built_in">find</span>(x),y=<span class="built_in">find</span>(y)</span><br><span class="line">  <span class="keyword">if</span>(depth[x]&lt;depth[y])fa[x]=y;</span><br><span class="line">  <span class="keyword">if</span>(depth[x]&gt;depth[y])fa[y]=x;</span><br><span class="line">  <span class="keyword">if</span>(depth[x]==depth[y])</span><br><span class="line">  &#123;</span><br><span class="line">      depth[y]++;</span><br><span class="line">      fa[x]=y;</span><br><span class="line">   &#125;<span class="comment">// 深度小的合并到深度大的集合里</span></span><br><span class="line">&#125;<span class="comment">//按秩合并</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-comment">//记录并初始化子树的大小为 1</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">MergeSet</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> </span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-type">int</span> x=<span class="hljs-built_in">find</span>(x), y=<span class="hljs-built_in">find</span>(y);<br>  <span class="hljs-keyword">if</span> (x==y) <span class="hljs-keyword">return</span>;<br>  <span class="hljs-keyword">if</span> (size[x] &gt; size[y])  <span class="hljs-comment">// 保证小的合到大的里</span><br>    <span class="hljs-built_in">swap</span>(x, y);<br>  fa[x] = y;<br>  size[y] += size[x];<br>&#125;<span class="hljs-comment">//按大小合并</span><br><br><span class="hljs-type">int</span> depth[maxn];<span class="hljs-comment">// 深度</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">MergeSet</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> </span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-type">int</span> x=<span class="hljs-built_in">find</span>(x),y=<span class="hljs-built_in">find</span>(y)<br>  <span class="hljs-keyword">if</span>(depth[x]&lt;depth[y])fa[x]=y;<br>  <span class="hljs-keyword">if</span>(depth[x]&gt;depth[y])fa[y]=x;<br>  <span class="hljs-keyword">if</span>(depth[x]==depth[y])<br>  &#123;<br>      depth[y]++;<br>      fa[x]=y;<br>   &#125;<span class="hljs-comment">// 深度小的合并到深度大的集合里</span><br>&#125;<span class="hljs-comment">//按秩合并</span><br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>同时采用 “路径压缩” 和 “按秩合并” 优化的并查集， 每次Get操作复杂度可进一步降低到$O(α(N))$(一个比对数函数增长还慢的函数，对于$\forall N \leqslant 2^{2^{10^{19729}}}$，都有$\alpha(N)&lt;5$，故$\alpha(N)$，可近似看成一个常数，由著名计算机科学家R.E.Tarjan于1975年发表的论文中给出了证明)。</p>
 </blockquote>
 <h3 id="带权并查集"><a href="#带权并查集" class="headerlink" title="带权并查集"></a>带权并查集</h3><p>并查集其实就是一个森林，我们可以在树上的每条边上记录一个权值，维护一个数组$d$,用$d[x]$保存节点$x$到父节点$fa[x]$之间的边权，在路径压缩的同时不断更新$d$数组。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(x==fa[x])<span class="keyword">return</span> x;</span><br><span class="line">  <span class="type">int</span> root=<span class="built_in">find</span>(fa[x]); <span class="comment">// 求集合代表</span></span><br><span class="line">  d[x]+=d[fa[x]]; <span class="comment">// 边权求和，维护d数组</span></span><br><span class="line">  <span class="keyword">return</span> fa[x]=root; <span class="comment">// 路径压缩</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-keyword">if</span>(x==fa[x])<span class="hljs-keyword">return</span> x;<br>  <span class="hljs-type">int</span> root=<span class="hljs-built_in">find</span>(fa[x]); <span class="hljs-comment">// 求集合代表</span><br>  d[x]+=d[fa[x]]; <span class="hljs-comment">// 边权求和，维护d数组</span><br>  <span class="hljs-keyword">return</span> fa[x]=root; <span class="hljs-comment">// 路径压缩</span><br>&#125;<br></code></pre></td></tr></table></figure>
 <h3 id="并查集的应用"><a href="#并查集的应用" class="headerlink" title="并查集的应用"></a>并查集的应用</h3><ul>
 <li>并查集能在<strong>一张无向图中维护节点之间的连通性</strong>，这是并查集的一个基本用途，实际上，<strong>并查集可以动态维护具有传递性的关系</strong>。</li>
 <li>最小生成树算法中的$Kruskal$和最近公共祖先中的$Tarjan$算法都是基于并查集的算法。</li>
@@ -387,30 +346,30 @@
 <p>这道题呢就是用到了带权并查集，在本题中我们可以把每两号相邻的战舰之间的权值看为$1$。</p>
 <p>两号战舰之间的战舰数目，其实就是第$i$号战舰的深度与第$j$号战舰的深度的差的绝对值-$1$。</p>
 <p>并且我们还需要用一个$size$数组去存每个集合的大小，去更新每个点的深度。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> T,f[<span class="number">30010</span>],dep[<span class="number">30010</span>],size[<span class="number">30010</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x==f[x])<span class="keyword">return</span> x;</span><br><span class="line">    <span class="type">int</span> fn=<span class="built_in">find</span>(f[x]);</span><br><span class="line">    dep[x]+=dep[f[x]];<span class="comment">// 更新权值</span></span><br><span class="line">    <span class="keyword">return</span> f[x]=fn;</span><br><span class="line">&#125;<span class="comment">// 查找集合代表</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Union</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    x=<span class="built_in">find</span>(x);</span><br><span class="line">    y=<span class="built_in">find</span>(y);</span><br><span class="line">    dep[x]+=size[y];</span><br><span class="line">    f[x]=y;</span><br><span class="line">    size[y]+=size[x];</span><br><span class="line">    size[x]=<span class="number">0</span>;<span class="comment">// 这一列上已经没有战舰</span></span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;<span class="comment">// 合并</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;T);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">30000</span>;i++)f[i]=i,size[i]=<span class="number">1</span>;<span class="comment">// 初始化每个集合的代表为自己，每一列上只有一艘战舰</span></span><br><span class="line">    <span class="keyword">while</span>(T!=<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        T--;</span><br><span class="line">        <span class="type">char</span> a;<span class="type">int</span> b,c;</span><br><span class="line">        cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;</span><br><span class="line">        <span class="keyword">if</span>(a==<span class="string">&#x27;M&#x27;</span>)<span class="built_in">Union</span>(b,c);</span><br><span class="line">        <span class="keyword">if</span>(a==<span class="string">&#x27;C&#x27;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">find</span>(b)!=<span class="built_in">find</span>(c))<span class="built_in">printf</span>(<span class="string">&quot;-1\n&quot;</span>);<span class="comment">// 不在同一列，输出-1</span></span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,<span class="built_in">abs</span>(dep[b]-dep[c])<span class="number">-1</span>);<span class="comment">// 计算有多少艘战舰</span></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">int</span> T,f[<span class="hljs-number">30010</span>],dep[<span class="hljs-number">30010</span>],size[<span class="hljs-number">30010</span>];<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span>(x==f[x])<span class="hljs-keyword">return</span> x;<br>    <span class="hljs-type">int</span> fn=<span class="hljs-built_in">find</span>(f[x]);<br>    dep[x]+=dep[f[x]];<span class="hljs-comment">// 更新权值</span><br>    <span class="hljs-keyword">return</span> f[x]=fn;<br>&#125;<span class="hljs-comment">// 查找集合代表</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Union</span><span class="hljs-params">(<span class="hljs-type">int</span> x,<span class="hljs-type">int</span> y)</span></span><br><span class="hljs-function"></span>&#123;<br>    x=<span class="hljs-built_in">find</span>(x);<br>    y=<span class="hljs-built_in">find</span>(y);<br>    dep[x]+=size[y];<br>    f[x]=y;<br>    size[y]+=size[x];<br>    size[x]=<span class="hljs-number">0</span>;<span class="hljs-comment">// 这一列上已经没有战舰</span><br>    <span class="hljs-keyword">return</span>;<br>&#125;<span class="hljs-comment">// 合并</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;T);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-number">30000</span>;i++)f[i]=i,size[i]=<span class="hljs-number">1</span>;<span class="hljs-comment">// 初始化每个集合的代表为自己，每一列上只有一艘战舰</span><br>    <span class="hljs-keyword">while</span>(T!=<span class="hljs-number">0</span>)<br>    &#123;<br>        T--;<br>        <span class="hljs-type">char</span> a;<span class="hljs-type">int</span> b,c;<br>        cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;<br>        <span class="hljs-keyword">if</span>(a==<span class="hljs-string">&#x27;M&#x27;</span>)<span class="hljs-built_in">Union</span>(b,c);<br>        <span class="hljs-keyword">if</span>(a==<span class="hljs-string">&#x27;C&#x27;</span>)<br>        &#123;<br>            <span class="hljs-keyword">if</span>(<span class="hljs-built_in">find</span>(b)!=<span class="hljs-built_in">find</span>(c))<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;-1\n&quot;</span>);<span class="hljs-comment">// 不在同一列，输出-1</span><br>            <span class="hljs-keyword">else</span><br>                <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>,<span class="hljs-built_in">abs</span>(dep[b]-dep[c])<span class="hljs-number">-1</span>);<span class="hljs-comment">// 计算有多少艘战舰</span><br><br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2502">luoguP2502 旅行</a></li>
 </ul>
 <p>这是一道枚举加并查集，首先我们可以先把每条边按速度从大到小排序然后去枚举最大边和最小边，使速度比最小。</p>
 <p>枚举的同时不断加边，用并查集来判断起点和终点是否联通,输出时不要忘记分子分母同除最大公因数。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxm=<span class="number">5e3</span>+<span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> n,m,s,t,f[<span class="number">510</span>],xl,yl;</span><br><span class="line"><span class="type">double</span> Min=<span class="number">2147483647</span>;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span>&#123;</span><br><span class="line">    <span class="type">int</span> u,v,c;</span><br><span class="line">&#125;;<span class="comment">// 结构体存边</span></span><br><span class="line">node edge[maxm];</span><br><span class="line"><span class="type">int</span> _find(<span class="type">int</span> x)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(x==f[x])<span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">return</span> f[x]=_find(f[x]);</span><br><span class="line">&#125;<span class="comment">// 查找集合代表</span></span><br><span class="line"><span class="type">void</span> _union(<span class="type">int</span> x,<span class="type">int</span> y)</span><br><span class="line">&#123;</span><br><span class="line">    x=_find(x);</span><br><span class="line">    y=_find(y);</span><br><span class="line">    f[x]=y;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;<span class="comment">// 合并</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">cmp</span><span class="params">(node x,node y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x.c&gt;y.c;</span><br><span class="line">&#125;<span class="comment">// 排序</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">gcd</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(y==<span class="number">0</span>)<span class="keyword">return</span> x;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">gcd</span>(y,x%y);</span><br><span class="line">&#125;<span class="comment">// 求最大公因数，辗转相除法</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;m);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)f[i]=i;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>,&amp;edge[i].u,&amp;edge[i].v,&amp;edge[i].c);</span><br><span class="line">        _union(edge[i].u,edge[i].v);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;s,&amp;t);</span><br><span class="line">    <span class="keyword">if</span>(_find(s)!=_find(t))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;IMPOSSIBLE&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;<span class="comment">// 如果把所有边加入后起点终点不连通，输出IMPOSSIBLE</span></span><br><span class="line">    <span class="built_in">sort</span>(edge+<span class="number">1</span>,edge+m+<span class="number">1</span>,cmp);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)<span class="comment">// 枚举最大边</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;j++)f[j]=j;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=i;j&lt;=m;j++)<span class="comment">// 枚举最小边</span></span><br><span class="line">        &#123;</span><br><span class="line">            _union(edge[j].u,edge[j].v);</span><br><span class="line">            <span class="keyword">if</span>(_find(s)==_find(t))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="type">double</span> tim=(<span class="number">1.0</span>*edge[i].c)/(<span class="number">1.0</span>*edge[j].c);</span><br><span class="line">                <span class="keyword">if</span>(tim&lt;Min)</span><br><span class="line">                &#123;</span><br><span class="line">                    xl=edge[i].c;</span><br><span class="line">                    yl=edge[j].c;</span><br><span class="line">                    Min=tim;<span class="comment">// 找最小速度比</span></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">gcd</span>(xl,yl)==yl)cout&lt;&lt;xl/yl;</span><br><span class="line">    <span class="keyword">else</span> cout&lt;&lt;xl/<span class="built_in">gcd</span>(xl,yl)&lt;&lt;<span class="string">&#x27;/&#x27;</span>&lt;&lt;yl/<span class="built_in">gcd</span>(xl,yl);<span class="comment">// 输出</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> maxm=<span class="hljs-number">5e3</span>+<span class="hljs-number">10</span>;<br><span class="hljs-type">int</span> n,m,s,t,f[<span class="hljs-number">510</span>],xl,yl;<br><span class="hljs-type">double</span> Min=<span class="hljs-number">2147483647</span>;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">node</span>&#123;<br>    <span class="hljs-type">int</span> u,v,c;<br>&#125;;<span class="hljs-comment">// 结构体存边</span><br>node edge[maxm];<br><span class="hljs-type">int</span> _find(<span class="hljs-type">int</span> x)<br>&#123;<br>    <span class="hljs-keyword">if</span>(x==f[x])<span class="hljs-keyword">return</span> x;<br>    <span class="hljs-keyword">return</span> f[x]=_find(f[x]);<br>&#125;<span class="hljs-comment">// 查找集合代表</span><br><span class="hljs-type">void</span> _union(<span class="hljs-type">int</span> x,<span class="hljs-type">int</span> y)<br>&#123;<br>    x=_find(x);<br>    y=_find(y);<br>    f[x]=y;<br>    <span class="hljs-keyword">return</span>;<br>&#125;<span class="hljs-comment">// 合并</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">cmp</span><span class="hljs-params">(node x,node y)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">return</span> x.c&gt;y.c;<br>&#125;<span class="hljs-comment">// 排序</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">gcd</span><span class="hljs-params">(<span class="hljs-type">int</span> x,<span class="hljs-type">int</span> y)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">if</span>(y==<span class="hljs-number">0</span>)<span class="hljs-keyword">return</span> x;<br>	<span class="hljs-keyword">return</span> <span class="hljs-built_in">gcd</span>(y,x%y);<br>&#125;<span class="hljs-comment">// 求最大公因数，辗转相除法</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d&quot;</span>,&amp;n,&amp;m);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)f[i]=i;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=m;i++)<br>    &#123;<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d%d&quot;</span>,&amp;edge[i].u,&amp;edge[i].v,&amp;edge[i].c);<br>        _union(edge[i].u,edge[i].v);<br>    &#125;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d&quot;</span>,&amp;s,&amp;t);<br>    <span class="hljs-keyword">if</span>(_find(s)!=_find(t))<br>    &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;IMPOSSIBLE&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    &#125;<span class="hljs-comment">// 如果把所有边加入后起点终点不连通，输出IMPOSSIBLE</span><br>    <span class="hljs-built_in">sort</span>(edge+<span class="hljs-number">1</span>,edge+m+<span class="hljs-number">1</span>,cmp);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=m;i++)<span class="hljs-comment">// 枚举最大边</span><br>    &#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>;j&lt;=n;j++)f[j]=j;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=i;j&lt;=m;j++)<span class="hljs-comment">// 枚举最小边</span><br>        &#123;<br>            _union(edge[j].u,edge[j].v);<br>            <span class="hljs-keyword">if</span>(_find(s)==_find(t))<br>            &#123;<br>                <span class="hljs-type">double</span> tim=(<span class="hljs-number">1.0</span>*edge[i].c)/(<span class="hljs-number">1.0</span>*edge[j].c);<br>                <span class="hljs-keyword">if</span>(tim&lt;Min)<br>                &#123;<br>                    xl=edge[i].c;<br>                    yl=edge[j].c;<br>                    Min=tim;<span class="hljs-comment">// 找最小速度比</span><br>                &#125;<br>                <span class="hljs-keyword">break</span>;<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">if</span>(<span class="hljs-built_in">gcd</span>(xl,yl)==yl)cout&lt;&lt;xl/yl;<br>    <span class="hljs-keyword">else</span> cout&lt;&lt;xl/<span class="hljs-built_in">gcd</span>(xl,yl)&lt;&lt;<span class="hljs-string">&#x27;/&#x27;</span>&lt;&lt;yl/<span class="hljs-built_in">gcd</span>(xl,yl);<span class="hljs-comment">// 输出</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1955">luoguP1955 程序自动分析</a></li>
 </ul>
 <p>题目读起来很简单，只需要先用并查集处理是等于的约束条件，之后在处理不等于的条件，如果不等于的两个数在同一联通块就输出$NO$，否则输出$YES$。</p>
 <p>但是本题的数据范围过大，无法把输入的$x$作为数组下标存储，所以我们需要用到离散化。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxn=<span class="number">1e6</span>+<span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> t,f[maxn],book[maxn*<span class="number">2</span>];</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span>&#123;</span><br><span class="line">    <span class="type">int</span> a,b,e;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Find</span><span class="params">(<span class="type">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x==f[x])<span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">return</span> f[x]=<span class="built_in">Find</span>(f[x]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Union</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    x=<span class="built_in">Find</span>(f[x]);</span><br><span class="line">    y=<span class="built_in">Find</span>(f[y]);</span><br><span class="line">    f[x]=y;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">cmp</span><span class="params">(node x,node y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x.e&gt;y.e;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;t);</span><br><span class="line">    <span class="keyword">while</span>(t!=<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        t--;</span><br><span class="line">        <span class="type">int</span> n,tot=<span class="number">0</span>;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">        node p[maxn];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>,&amp;p[i].a,&amp;p[i].b,&amp;p[i].e);</span><br><span class="line">            book[++tot]=p[i].a;</span><br><span class="line">            book[++tot]=p[i].b;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(book+<span class="number">1</span>,book+tot+<span class="number">1</span>);</span><br><span class="line">        <span class="type">int</span> indx=<span class="built_in">unique</span>(book+<span class="number">1</span>,book+tot+<span class="number">1</span>)-book<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            p[i].a=<span class="built_in">lower_bound</span>(book+<span class="number">1</span>,book+indx+<span class="number">1</span>,p[i].a)-book;</span><br><span class="line">            p[i].b=<span class="built_in">lower_bound</span>(book+<span class="number">1</span>,book+indx+<span class="number">1</span>,p[i].b)-book;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">bool</span> k=<span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=indx;i++)f[i]=i;</span><br><span class="line">        <span class="built_in">sort</span>(p+<span class="number">1</span>,p+n+<span class="number">1</span>,cmp);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(p[i].e==<span class="number">1</span>)</span><br><span class="line">                <span class="built_in">Union</span>(p[i].a,p[i].b);</span><br><span class="line">            <span class="keyword">else</span> </span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(<span class="built_in">Find</span>(p[i].a)==<span class="built_in">Find</span>(p[i].b))</span><br><span class="line">                &#123;</span><br><span class="line">                    cout&lt;&lt;<span class="string">&quot;NO&quot;</span>&lt;&lt;endl;</span><br><span class="line">                    k=<span class="literal">false</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(k==<span class="literal">true</span>)cout&lt;&lt;<span class="string">&quot;YES&quot;</span>&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> maxn=<span class="hljs-number">1e6</span>+<span class="hljs-number">10</span>;<br><span class="hljs-type">int</span> t,f[maxn],book[maxn*<span class="hljs-number">2</span>];<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">node</span>&#123;<br>    <span class="hljs-type">int</span> a,b,e;<br>&#125;;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">Find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span>(x==f[x])<span class="hljs-keyword">return</span> x;<br>    <span class="hljs-keyword">return</span> f[x]=<span class="hljs-built_in">Find</span>(f[x]);<br>&#125;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Union</span><span class="hljs-params">(<span class="hljs-type">int</span> x,<span class="hljs-type">int</span> y)</span></span><br><span class="hljs-function"></span>&#123;<br>    x=<span class="hljs-built_in">Find</span>(f[x]);<br>    y=<span class="hljs-built_in">Find</span>(f[y]);<br>    f[x]=y;<br>    <span class="hljs-keyword">return</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">cmp</span><span class="hljs-params">(node x,node y)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">return</span> x.e&gt;y.e;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;t);<br>    <span class="hljs-keyword">while</span>(t!=<span class="hljs-number">0</span>)<br>    &#123;<br>        t--;<br>        <span class="hljs-type">int</span> n,tot=<span class="hljs-number">0</span>;<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;n);<br>        node p[maxn];<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)<br>        &#123;<br>            <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d%d&quot;</span>,&amp;p[i].a,&amp;p[i].b,&amp;p[i].e);<br>            book[++tot]=p[i].a;<br>            book[++tot]=p[i].b;<br>        &#125;<br>        <span class="hljs-built_in">sort</span>(book+<span class="hljs-number">1</span>,book+tot+<span class="hljs-number">1</span>);<br>        <span class="hljs-type">int</span> indx=<span class="hljs-built_in">unique</span>(book+<span class="hljs-number">1</span>,book+tot+<span class="hljs-number">1</span>)-book<span class="hljs-number">-1</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)<br>        &#123;<br>            p[i].a=<span class="hljs-built_in">lower_bound</span>(book+<span class="hljs-number">1</span>,book+indx+<span class="hljs-number">1</span>,p[i].a)-book;<br>            p[i].b=<span class="hljs-built_in">lower_bound</span>(book+<span class="hljs-number">1</span>,book+indx+<span class="hljs-number">1</span>,p[i].b)-book;<br>        &#125;<br>        <span class="hljs-type">bool</span> k=<span class="hljs-literal">true</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=indx;i++)f[i]=i;<br>        <span class="hljs-built_in">sort</span>(p+<span class="hljs-number">1</span>,p+n+<span class="hljs-number">1</span>,cmp);<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)<br>        &#123;<br>            <span class="hljs-keyword">if</span>(p[i].e==<span class="hljs-number">1</span>)<br>                <span class="hljs-built_in">Union</span>(p[i].a,p[i].b);<br>            <span class="hljs-keyword">else</span> <br>            &#123;<br>                <span class="hljs-keyword">if</span>(<span class="hljs-built_in">Find</span>(p[i].a)==<span class="hljs-built_in">Find</span>(p[i].b))<br>                &#123;<br>                    cout&lt;&lt;<span class="hljs-string">&quot;NO&quot;</span>&lt;&lt;endl;<br>                    k=<span class="hljs-literal">false</span>;<br>                    <span class="hljs-keyword">break</span>;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">if</span>(k==<span class="hljs-literal">true</span>)cout&lt;&lt;<span class="hljs-string">&quot;YES&quot;</span>&lt;&lt;endl;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2024">luoguP2024 食物链</a></li>
 </ul>
 <p>这是一道种类并查集，需要分析清楚$A$种群，$B$种群，$C$种群之间的关系。</p>
 <p>首先这三个种群之间的关系只有<strong>同类</strong>、<strong>猎物</strong>和<strong>天敌</strong>，这三种，所以我们可以开一个三倍的并查集，<strong>一倍存同类，二倍存猎物，三倍存天敌</strong>，然后不断去判断就好了，具体看代码注释（用到了拓展域的并查集）。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxn=<span class="number">5e4</span>+<span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> n,k,f[maxn*<span class="number">3</span>],ans;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Find</span><span class="params">(<span class="type">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x==f[x])<span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">return</span> f[x]=<span class="built_in">Find</span>(f[x]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Union</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    f[<span class="built_in">Find</span>(f[x])]=<span class="built_in">Find</span>(f[y]);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;k);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n*<span class="number">3</span>;i++)f[i]=i;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=k;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> flag,x,y;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>,&amp;flag,&amp;x,&amp;y);</span><br><span class="line">        <span class="keyword">if</span>(x&gt;n||y&gt;n)</span><br><span class="line">        &#123;</span><br><span class="line">            ans++;<span class="keyword">continue</span>;</span><br><span class="line">        &#125;<span class="comment">// 如果不在当前食物链范围内，就是假话</span></span><br><span class="line">        <span class="keyword">if</span>(flag==<span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">Find</span>(x+n)==<span class="built_in">Find</span>(y)||<span class="built_in">Find</span>(x+<span class="number">2</span>*n)==<span class="built_in">Find</span>(y))</span><br><span class="line">            &#123;</span><br><span class="line">                ans++;<span class="keyword">continue</span>;</span><br><span class="line">            &#125;<span class="comment">// 如果x是y的猎物或天敌，为假话</span></span><br><span class="line">            <span class="built_in">Union</span>(x,y);<span class="built_in">Union</span>(x+n,y+n);<span class="built_in">Union</span>(x+<span class="number">2</span>*n,y+<span class="number">2</span>*n);</span><br><span class="line">            <span class="comment">// 如果是真，x的同类就是y的同类，x的猎物就是y的猎物，x的天敌就是y的天敌</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(x==y)</span><br><span class="line">            &#123;   </span><br><span class="line">                ans++;<span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">Find</span>(x)==<span class="built_in">Find</span>(y)||<span class="built_in">Find</span>(x)==<span class="built_in">Find</span>(y+n))</span><br><span class="line">            &#123;</span><br><span class="line">                ans++;<span class="keyword">continue</span>;</span><br><span class="line">            &#125;<span class="comment">// 如果x是y的同类或猎物为假话</span></span><br><span class="line">            <span class="built_in">Union</span>(x+n,y);<span class="built_in">Union</span>(x+<span class="number">2</span>*n,y+n);<span class="built_in">Union</span>(x,y+<span class="number">2</span>*n);</span><br><span class="line">            <span class="comment">// 如果为真，x的猎物就是y的同类，x的天敌就是y的猎物，x的同类就是y的天敌</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> maxn=<span class="hljs-number">5e4</span>+<span class="hljs-number">10</span>;<br><span class="hljs-type">int</span> n,k,f[maxn*<span class="hljs-number">3</span>],ans;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">Find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span>(x==f[x])<span class="hljs-keyword">return</span> x;<br>    <span class="hljs-keyword">return</span> f[x]=<span class="hljs-built_in">Find</span>(f[x]);<br>&#125;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Union</span><span class="hljs-params">(<span class="hljs-type">int</span> x,<span class="hljs-type">int</span> y)</span></span><br><span class="hljs-function"></span>&#123;<br>    f[<span class="hljs-built_in">Find</span>(f[x])]=<span class="hljs-built_in">Find</span>(f[y]);<br>    <span class="hljs-keyword">return</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d&quot;</span>,&amp;n,&amp;k);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n*<span class="hljs-number">3</span>;i++)f[i]=i;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=k;i++)<br>    &#123;<br>        <span class="hljs-type">int</span> flag,x,y;<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d%d&quot;</span>,&amp;flag,&amp;x,&amp;y);<br>        <span class="hljs-keyword">if</span>(x&gt;n||y&gt;n)<br>        &#123;<br>            ans++;<span class="hljs-keyword">continue</span>;<br>        &#125;<span class="hljs-comment">// 如果不在当前食物链范围内，就是假话</span><br>        <span class="hljs-keyword">if</span>(flag==<span class="hljs-number">1</span>)<br>        &#123;<br>            <span class="hljs-keyword">if</span>(<span class="hljs-built_in">Find</span>(x+n)==<span class="hljs-built_in">Find</span>(y)||<span class="hljs-built_in">Find</span>(x+<span class="hljs-number">2</span>*n)==<span class="hljs-built_in">Find</span>(y))<br>            &#123;<br>                ans++;<span class="hljs-keyword">continue</span>;<br>            &#125;<span class="hljs-comment">// 如果x是y的猎物或天敌，为假话</span><br>            <span class="hljs-built_in">Union</span>(x,y);<span class="hljs-built_in">Union</span>(x+n,y+n);<span class="hljs-built_in">Union</span>(x+<span class="hljs-number">2</span>*n,y+<span class="hljs-number">2</span>*n);<br>            <span class="hljs-comment">// 如果是真，x的同类就是y的同类，x的猎物就是y的猎物，x的天敌就是y的天敌</span><br>        &#125;<br>        <span class="hljs-keyword">else</span> <br>        &#123;<br>            <span class="hljs-keyword">if</span>(x==y)<br>            &#123;   <br>                ans++;<span class="hljs-keyword">continue</span>;<br>            &#125;<br>            <span class="hljs-keyword">if</span>(<span class="hljs-built_in">Find</span>(x)==<span class="hljs-built_in">Find</span>(y)||<span class="hljs-built_in">Find</span>(x)==<span class="hljs-built_in">Find</span>(y+n))<br>            &#123;<br>                ans++;<span class="hljs-keyword">continue</span>;<br>            &#125;<span class="hljs-comment">// 如果x是y的同类或猎物为假话</span><br>            <span class="hljs-built_in">Union</span>(x+n,y);<span class="hljs-built_in">Union</span>(x+<span class="hljs-number">2</span>*n,y+n);<span class="hljs-built_in">Union</span>(x,y+<span class="hljs-number">2</span>*n);<br>            <span class="hljs-comment">// 如果为真，x的猎物就是y的同类，x的天敌就是y的猎物，x的同类就是y的天敌</span><br>        &#125;<br>    &#125;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span>,ans);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1197">luoguP1197 星球大战</a></li>
 </ul>
 <p>如果我们正着按顺序去摧毁，显然在时间复杂度上不允许，所以我们可以去使用逆向思维，把<strong>摧毁改为修建</strong>再利用并查集判断联通性就可以了。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxn=<span class="number">4e5</span>+<span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> n,k,m,b[maxn],B[maxn],f[maxn];</span><br><span class="line"><span class="type">int</span> tot,ans[maxn];</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; mp[maxn];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Find</span><span class="params">(<span class="type">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x==f[x])<span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">return</span> f[x]=<span class="built_in">Find</span>(f[x]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Union</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    f[<span class="built_in">Find</span>(f[x])]=<span class="built_in">Find</span>(f[y]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)f[i]=i;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> x,y;cin&gt;&gt;x&gt;&gt;y;</span><br><span class="line">        mp[x].<span class="built_in">push_back</span>(y);</span><br><span class="line">        mp[y].<span class="built_in">push_back</span>(x);</span><br><span class="line">    &#125;<span class="comment">// 存双向图</span></span><br><span class="line">    cin&gt;&gt;k;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=k;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cin&gt;&gt;b[i];</span><br><span class="line">        B[b[i]]=<span class="number">1</span>;</span><br><span class="line">    &#125;<span class="comment">// 标记是否被摧毁</span></span><br><span class="line">    tot=n-k;<span class="comment">// 摧毁后有几个联通块</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;mp[i].<span class="built_in">size</span>();j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(!B[i]&amp;&amp;!B[mp[i][j]]&amp;&amp;<span class="built_in">Find</span>(i)!=<span class="built_in">Find</span>(mp[i][j]))<span class="comment">// 如果没有被摧毁合并</span></span><br><span class="line">            &#123;</span><br><span class="line">                tot--;<span class="comment">// 每减一条边联通块-1</span></span><br><span class="line">                <span class="built_in">Union</span>(i,mp[i][j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="comment">// 建好摧毁后的联通块</span></span><br><span class="line">    ans[k+<span class="number">1</span>]=tot;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=k;i&gt;=<span class="number">1</span>;i--)</span><br><span class="line">    &#123;</span><br><span class="line">        tot++;B[b[i]]=<span class="number">0</span>;<span class="comment">// 修建</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;mp[b[i]].<span class="built_in">size</span>();j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(!B[mp[b[i]][j]]&amp;&amp;<span class="built_in">Find</span>(b[i])!=<span class="built_in">Find</span>(mp[b[i]][j]))</span><br><span class="line">            &#123;</span><br><span class="line">                tot--;</span><br><span class="line">                <span class="built_in">Union</span>(b[i],mp[b[i]][j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ans[i]=tot;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=k+<span class="number">1</span>;i++)cout&lt;&lt;ans[i]&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> maxn=<span class="hljs-number">4e5</span>+<span class="hljs-number">10</span>;<br><span class="hljs-type">int</span> n,k,m,b[maxn],B[maxn],f[maxn];<br><span class="hljs-type">int</span> tot,ans[maxn];<br>vector&lt;<span class="hljs-type">int</span>&gt; mp[maxn];<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">Find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span>(x==f[x])<span class="hljs-keyword">return</span> x;<br>    <span class="hljs-keyword">return</span> f[x]=<span class="hljs-built_in">Find</span>(f[x]);<br>&#125;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Union</span><span class="hljs-params">(<span class="hljs-type">int</span> x,<span class="hljs-type">int</span> y)</span></span><br><span class="hljs-function"></span>&#123;<br>    f[<span class="hljs-built_in">Find</span>(f[x])]=<span class="hljs-built_in">Find</span>(f[y]);<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    cin&gt;&gt;n&gt;&gt;m;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)f[i]=i;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=m;i++)<br>    &#123;<br>        <span class="hljs-type">int</span> x,y;cin&gt;&gt;x&gt;&gt;y;<br>        mp[x].<span class="hljs-built_in">push_back</span>(y);<br>        mp[y].<span class="hljs-built_in">push_back</span>(x);<br>    &#125;<span class="hljs-comment">// 存双向图</span><br>    cin&gt;&gt;k;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=k;i++)<br>    &#123;<br>        cin&gt;&gt;b[i];<br>        B[b[i]]=<span class="hljs-number">1</span>;<br>    &#125;<span class="hljs-comment">// 标记是否被摧毁</span><br>    tot=n-k;<span class="hljs-comment">// 摧毁后有几个联通块</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)<br>    &#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">0</span>;j&lt;mp[i].<span class="hljs-built_in">size</span>();j++)<br>        &#123;<br>            <span class="hljs-keyword">if</span>(!B[i]&amp;&amp;!B[mp[i][j]]&amp;&amp;<span class="hljs-built_in">Find</span>(i)!=<span class="hljs-built_in">Find</span>(mp[i][j]))<span class="hljs-comment">// 如果没有被摧毁合并</span><br>            &#123;<br>                tot--;<span class="hljs-comment">// 每减一条边联通块-1</span><br>                <span class="hljs-built_in">Union</span>(i,mp[i][j]);<br>            &#125;<br>        &#125;<br>    &#125;<span class="hljs-comment">// 建好摧毁后的联通块</span><br>    ans[k+<span class="hljs-number">1</span>]=tot;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=k;i&gt;=<span class="hljs-number">1</span>;i--)<br>    &#123;<br>        tot++;B[b[i]]=<span class="hljs-number">0</span>;<span class="hljs-comment">// 修建</span><br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">0</span>;j&lt;mp[b[i]].<span class="hljs-built_in">size</span>();j++)<br>        &#123;<br>            <span class="hljs-keyword">if</span>(!B[mp[b[i]][j]]&amp;&amp;<span class="hljs-built_in">Find</span>(b[i])!=<span class="hljs-built_in">Find</span>(mp[b[i]][j]))<br>            &#123;<br>                tot--;<br>                <span class="hljs-built_in">Union</span>(b[i],mp[b[i]][j]);<br>            &#125;<br>        &#125;<br>        ans[i]=tot;<br>    &#125;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=k+<span class="hljs-number">1</span>;i++)cout&lt;&lt;ans[i]&lt;&lt;endl;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <h3 id="可持久化并查集"><a href="#可持久化并查集" class="headerlink" title="可持久化并查集"></a>可持久化并查集</h3><p>并查集作为一个数据结构，也是有可持久化版本的。</p>
 <p>顾名思义，可持久化并查集=可持久化+并查集=可持久化数组+并查集=主席树+并查集。👀️</p>
 <p>首先，因为需要记录历史版本，所以路径压缩显然是不能用的；</p>
@@ -424,152 +383,421 @@
 </ul>
 </blockquote>
 <p>对于第一个操作：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root[i]=root[k];</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">root[i]=root[k];<br></code></pre></td></tr></table></figure>
 <p>对于第二个操作：其实就是按秩合并；</p>
 <p>对于第三个操作：在可持续化数组中查询。</p>
 <p><strong>初始建树</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">build</span><span class="params">(<span class="type">int</span> l,<span class="type">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cnt++;<span class="type">int</span> p=cnt;</span><br><span class="line">    <span class="keyword">if</span>(l==r)</span><br><span class="line">    &#123;</span><br><span class="line">        t[p].fa=l;</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> mid=(l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    t[p].ls=<span class="built_in">build</span>(l,mid);</span><br><span class="line">    t[p].rs=<span class="built_in">build</span>(mid+<span class="number">1</span>,r);</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">build</span><span class="hljs-params">(<span class="hljs-type">int</span> l,<span class="hljs-type">int</span> r)</span></span><br><span class="hljs-function"></span>&#123;<br>    cnt++;<span class="hljs-type">int</span> p=cnt;<br>    <span class="hljs-keyword">if</span>(l==r)<br>    &#123;<br>        t[p].fa=l;<br>        <span class="hljs-keyword">return</span> p;<br>    &#125;<br>    <span class="hljs-type">int</span> mid=(l+r)&gt;&gt;<span class="hljs-number">1</span>;<br>    t[p].ls=<span class="hljs-built_in">build</span>(l,mid);<br>    t[p].rs=<span class="hljs-built_in">build</span>(mid+<span class="hljs-number">1</span>,r);<br>    <span class="hljs-keyword">return</span> p;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p><strong>合并</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">merge</span><span class="params">(<span class="type">int</span> now,<span class="type">int</span> l,<span class="type">int</span> r,<span class="type">int</span> fat,<span class="type">int</span> son)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cnt++;<span class="type">int</span> p=cnt;</span><br><span class="line">    t[p]=t[now];</span><br><span class="line">    <span class="keyword">if</span>(l==r)</span><br><span class="line">    &#123;</span><br><span class="line">        t[p].fa=fat;</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> mid=(l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(son&lt;=mid)t[p].ls=<span class="built_in">merge</span>(t[p].ls,l,mid,fat,son);</span><br><span class="line">    <span class="keyword">else</span> t[p].rs=<span class="built_in">merge</span>(t[p].rs,mid+<span class="number">1</span>,r,fat,son);</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">merge</span><span class="hljs-params">(<span class="hljs-type">int</span> now,<span class="hljs-type">int</span> l,<span class="hljs-type">int</span> r,<span class="hljs-type">int</span> fat,<span class="hljs-type">int</span> son)</span></span><br><span class="hljs-function"></span>&#123;<br>    cnt++;<span class="hljs-type">int</span> p=cnt;<br>    t[p]=t[now];<br>    <span class="hljs-keyword">if</span>(l==r)<br>    &#123;<br>        t[p].fa=fat;<br>        <span class="hljs-keyword">return</span> p;<br>    &#125;<br>    <span class="hljs-type">int</span> mid=(l+r)&gt;&gt;<span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">if</span>(son&lt;=mid)t[p].ls=<span class="hljs-built_in">merge</span>(t[p].ls,l,mid,fat,son);<br>    <span class="hljs-keyword">else</span> t[p].rs=<span class="hljs-built_in">merge</span>(t[p].rs,mid+<span class="hljs-number">1</span>,r,fat,son);<br>    <span class="hljs-keyword">return</span> p;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p><strong>按秩合并的修改深度</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> p,<span class="type">int</span> l,<span class="type">int</span> r,<span class="type">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(l==r)</span><br><span class="line">    &#123;</span><br><span class="line">        t[p].depth++;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> mid=(l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(x&lt;=mid)<span class="built_in">add</span>(t[p].ls,l,mid,x);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">add</span>(t[p].rs,mid+<span class="number">1</span>,r,x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-type">int</span> p,<span class="hljs-type">int</span> l,<span class="hljs-type">int</span> r,<span class="hljs-type">int</span> x)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span>(l==r)<br>    &#123;<br>        t[p].depth++;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-type">int</span> mid=(l+r)&gt;&gt;<span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">if</span>(x&lt;=mid)<span class="hljs-built_in">add</span>(t[p].ls,l,mid,x);<br>    <span class="hljs-keyword">else</span> <span class="hljs-built_in">add</span>(t[p].rs,mid+<span class="hljs-number">1</span>,r,x);<br>&#125;<br></code></pre></td></tr></table></figure>
 <p><strong>得到元素在当前版本的元素编号</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">get_indx</span><span class="params">(<span class="type">int</span> p,<span class="type">int</span> l,<span class="type">int</span> r,<span class="type">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(l==r)<span class="keyword">return</span> p;</span><br><span class="line">    <span class="type">int</span> mid=(l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(x&lt;=mid)<span class="keyword">return</span> <span class="built_in">get_indx</span>(t[p].ls,l,mid,x);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="built_in">get_indx</span>(t[p].rs,mid+<span class="number">1</span>,r,x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">get_indx</span><span class="hljs-params">(<span class="hljs-type">int</span> p,<span class="hljs-type">int</span> l,<span class="hljs-type">int</span> r,<span class="hljs-type">int</span> x)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span>(l==r)<span class="hljs-keyword">return</span> p;<br>    <span class="hljs-type">int</span> mid=(l+r)&gt;&gt;<span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">if</span>(x&lt;=mid)<span class="hljs-keyword">return</span> <span class="hljs-built_in">get_indx</span>(t[p].ls,l,mid,x);<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-built_in">get_indx</span>(t[p].rs,mid+<span class="hljs-number">1</span>,r,x);<br>&#125;<br></code></pre></td></tr></table></figure>
 <p><strong>查询祖先</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> now,<span class="type">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> father=<span class="built_in">get_indx</span>(now,<span class="number">1</span>,n,x);</span><br><span class="line">    <span class="keyword">if</span>(x==t[father].fa)<span class="keyword">return</span> father;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">find</span>(now,t[father].fa);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">int</span> now,<span class="hljs-type">int</span> x)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">int</span> father=<span class="hljs-built_in">get_indx</span>(now,<span class="hljs-number">1</span>,n,x);<br>    <span class="hljs-keyword">if</span>(x==t[father].fa)<span class="hljs-keyword">return</span> father;<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">find</span>(now,t[father].fa);<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>最后放一下完整代码吧（QWQ）。</p>
 <p><strong>code</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxm=<span class="number">2e5</span>+<span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> n,m,root[maxm],cnt;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">TREE</span>&#123;</span><br><span class="line">    <span class="type">int</span> ls,rs,fa,depth;</span><br><span class="line">&#125;t[maxm&lt;&lt;<span class="number">5</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">build</span><span class="params">(<span class="type">int</span> l,<span class="type">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cnt++;<span class="type">int</span> p=cnt;</span><br><span class="line">    <span class="keyword">if</span>(l==r)</span><br><span class="line">    &#123;</span><br><span class="line">        t[p].fa=l;</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> mid=(l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    t[p].ls=<span class="built_in">build</span>(l,mid);</span><br><span class="line">    t[p].rs=<span class="built_in">build</span>(mid+<span class="number">1</span>,r);</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> p,<span class="type">int</span> l,<span class="type">int</span> r,<span class="type">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(l==r)</span><br><span class="line">    &#123;</span><br><span class="line">        t[p].depth++;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> mid=(l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(x&lt;=mid)<span class="built_in">add</span>(t[p].ls,l,mid,x);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">add</span>(t[p].rs,mid+<span class="number">1</span>,r,x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">get_indx</span><span class="params">(<span class="type">int</span> p,<span class="type">int</span> l,<span class="type">int</span> r,<span class="type">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(l==r)<span class="keyword">return</span> p;</span><br><span class="line">    <span class="type">int</span> mid=(l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(x&lt;=mid)<span class="keyword">return</span> <span class="built_in">get_indx</span>(t[p].ls,l,mid,x);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="built_in">get_indx</span>(t[p].rs,mid+<span class="number">1</span>,r,x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> now,<span class="type">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> father=<span class="built_in">get_indx</span>(now,<span class="number">1</span>,n,x);</span><br><span class="line">    <span class="keyword">if</span>(x==t[father].fa)<span class="keyword">return</span> father;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">find</span>(now,t[father].fa);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">merge</span><span class="params">(<span class="type">int</span> now,<span class="type">int</span> l,<span class="type">int</span> r,<span class="type">int</span> fat,<span class="type">int</span> son)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cnt++;<span class="type">int</span> p=cnt;</span><br><span class="line">    t[p]=t[now];</span><br><span class="line">    <span class="keyword">if</span>(l==r)</span><br><span class="line">    &#123;</span><br><span class="line">        t[p].fa=fat;</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> mid=(l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(son&lt;=mid)t[p].ls=<span class="built_in">merge</span>(t[p].ls,l,mid,fat,son);</span><br><span class="line">    <span class="keyword">else</span> t[p].rs=<span class="built_in">merge</span>(t[p].rs,mid+<span class="number">1</span>,r,fat,son);</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;m);</span><br><span class="line">    root[<span class="number">0</span>]=<span class="built_in">build</span>(<span class="number">1</span>,n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> opt;<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;opt);</span><br><span class="line">        <span class="keyword">if</span>(opt==<span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> a,b;<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;a,&amp;b);</span><br><span class="line">            root[i]=root[i<span class="number">-1</span>];</span><br><span class="line">            <span class="type">int</span> f1=<span class="built_in">find</span>(root[i],a);</span><br><span class="line">            <span class="type">int</span> f2=<span class="built_in">find</span>(root[i],b);</span><br><span class="line">            <span class="keyword">if</span>(t[f1].fa==t[f2].fa)<span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span>(t[f1].depth&gt;t[f2].depth)<span class="built_in">swap</span>(f1,f2);</span><br><span class="line">            root[i]=<span class="built_in">merge</span>(root[i<span class="number">-1</span>],<span class="number">1</span>,n,t[f2].fa,t[f1].fa);</span><br><span class="line">            <span class="keyword">if</span>(t[f1].depth==t[f2].depth)<span class="built_in">add</span>(root[i],<span class="number">1</span>,n,t[f2].fa);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(opt==<span class="number">2</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> k;<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;k);</span><br><span class="line">            root[i]=root[k];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(opt==<span class="number">3</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> a,b;<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;a,&amp;b);</span><br><span class="line">            root[i]=root[i<span class="number">-1</span>];</span><br><span class="line">            <span class="type">int</span> f1=<span class="built_in">find</span>(root[i],a);</span><br><span class="line">            <span class="type">int</span> f2=<span class="built_in">find</span>(root[i],b);</span><br><span class="line">            <span class="keyword">if</span>(t[f1].fa==t[f2].fa)<span class="built_in">printf</span>(<span class="string">&quot;1\n&quot;</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;0\n&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> maxm=<span class="hljs-number">2e5</span>+<span class="hljs-number">10</span>;<br><span class="hljs-type">int</span> n,m,root[maxm],cnt;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">TREE</span>&#123;<br>    <span class="hljs-type">int</span> ls,rs,fa,depth;<br>&#125;t[maxm&lt;&lt;<span class="hljs-number">5</span>];<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">build</span><span class="hljs-params">(<span class="hljs-type">int</span> l,<span class="hljs-type">int</span> r)</span></span><br><span class="hljs-function"></span>&#123;<br>    cnt++;<span class="hljs-type">int</span> p=cnt;<br>    <span class="hljs-keyword">if</span>(l==r)<br>    &#123;<br>        t[p].fa=l;<br>        <span class="hljs-keyword">return</span> p;<br>    &#125;<br>    <span class="hljs-type">int</span> mid=(l+r)&gt;&gt;<span class="hljs-number">1</span>;<br>    t[p].ls=<span class="hljs-built_in">build</span>(l,mid);<br>    t[p].rs=<span class="hljs-built_in">build</span>(mid+<span class="hljs-number">1</span>,r);<br>    <span class="hljs-keyword">return</span> p;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-type">int</span> p,<span class="hljs-type">int</span> l,<span class="hljs-type">int</span> r,<span class="hljs-type">int</span> x)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span>(l==r)<br>    &#123;<br>        t[p].depth++;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-type">int</span> mid=(l+r)&gt;&gt;<span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">if</span>(x&lt;=mid)<span class="hljs-built_in">add</span>(t[p].ls,l,mid,x);<br>    <span class="hljs-keyword">else</span> <span class="hljs-built_in">add</span>(t[p].rs,mid+<span class="hljs-number">1</span>,r,x);<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">get_indx</span><span class="hljs-params">(<span class="hljs-type">int</span> p,<span class="hljs-type">int</span> l,<span class="hljs-type">int</span> r,<span class="hljs-type">int</span> x)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span>(l==r)<span class="hljs-keyword">return</span> p;<br>    <span class="hljs-type">int</span> mid=(l+r)&gt;&gt;<span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">if</span>(x&lt;=mid)<span class="hljs-keyword">return</span> <span class="hljs-built_in">get_indx</span>(t[p].ls,l,mid,x);<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-built_in">get_indx</span>(t[p].rs,mid+<span class="hljs-number">1</span>,r,x);<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">int</span> now,<span class="hljs-type">int</span> x)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">int</span> father=<span class="hljs-built_in">get_indx</span>(now,<span class="hljs-number">1</span>,n,x);<br>    <span class="hljs-keyword">if</span>(x==t[father].fa)<span class="hljs-keyword">return</span> father;<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">find</span>(now,t[father].fa);<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">merge</span><span class="hljs-params">(<span class="hljs-type">int</span> now,<span class="hljs-type">int</span> l,<span class="hljs-type">int</span> r,<span class="hljs-type">int</span> fat,<span class="hljs-type">int</span> son)</span></span><br><span class="hljs-function"></span>&#123;<br>    cnt++;<span class="hljs-type">int</span> p=cnt;<br>    t[p]=t[now];<br>    <span class="hljs-keyword">if</span>(l==r)<br>    &#123;<br>        t[p].fa=fat;<br>        <span class="hljs-keyword">return</span> p;<br>    &#125;<br>    <span class="hljs-type">int</span> mid=(l+r)&gt;&gt;<span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">if</span>(son&lt;=mid)t[p].ls=<span class="hljs-built_in">merge</span>(t[p].ls,l,mid,fat,son);<br>    <span class="hljs-keyword">else</span> t[p].rs=<span class="hljs-built_in">merge</span>(t[p].rs,mid+<span class="hljs-number">1</span>,r,fat,son);<br>    <span class="hljs-keyword">return</span> p;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d&quot;</span>,&amp;n,&amp;m);<br>    root[<span class="hljs-number">0</span>]=<span class="hljs-built_in">build</span>(<span class="hljs-number">1</span>,n);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=m;i++)<br>    &#123;<br>        <span class="hljs-type">int</span> opt;<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;opt);<br>        <span class="hljs-keyword">if</span>(opt==<span class="hljs-number">1</span>)<br>        &#123;<br>            <span class="hljs-type">int</span> a,b;<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d&quot;</span>,&amp;a,&amp;b);<br>            root[i]=root[i<span class="hljs-number">-1</span>];<br>            <span class="hljs-type">int</span> f1=<span class="hljs-built_in">find</span>(root[i],a);<br>            <span class="hljs-type">int</span> f2=<span class="hljs-built_in">find</span>(root[i],b);<br>            <span class="hljs-keyword">if</span>(t[f1].fa==t[f2].fa)<span class="hljs-keyword">continue</span>;<br>            <span class="hljs-keyword">if</span>(t[f1].depth&gt;t[f2].depth)<span class="hljs-built_in">swap</span>(f1,f2);<br>            root[i]=<span class="hljs-built_in">merge</span>(root[i<span class="hljs-number">-1</span>],<span class="hljs-number">1</span>,n,t[f2].fa,t[f1].fa);<br>            <span class="hljs-keyword">if</span>(t[f1].depth==t[f2].depth)<span class="hljs-built_in">add</span>(root[i],<span class="hljs-number">1</span>,n,t[f2].fa);<br>        &#125;<br>        <span class="hljs-keyword">if</span>(opt==<span class="hljs-number">2</span>)<br>        &#123;<br>            <span class="hljs-type">int</span> k;<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;k);<br>            root[i]=root[k];<br>        &#125;<br>        <span class="hljs-keyword">if</span>(opt==<span class="hljs-number">3</span>)<br>        &#123;<br>            <span class="hljs-type">int</span> a,b;<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d&quot;</span>,&amp;a,&amp;b);<br>            root[i]=root[i<span class="hljs-number">-1</span>];<br>            <span class="hljs-type">int</span> f1=<span class="hljs-built_in">find</span>(root[i],a);<br>            <span class="hljs-type">int</span> f2=<span class="hljs-built_in">find</span>(root[i],b);<br>            <span class="hljs-keyword">if</span>(t[f1].fa==t[f2].fa)<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;1\n&quot;</span>);<br>            <span class="hljs-keyword">else</span> <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;0\n&quot;</span>);<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <h3 id="拓展—可持久化带权并查集"><a href="#拓展—可持久化带权并查集" class="headerlink" title="拓展—可持久化带权并查集"></a>拓展—可持久化带权并查集</h3><p>可持久化并查集+边带权（逃）。</p>
 <p>最后附上我的<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/training/116259#information">题单</a>。</p>
 <h5 id="完结撒花-（终于写完了）🎉️-🎉️-🎉️"><a href="#完结撒花-（终于写完了）🎉️-🎉️-🎉️" class="headerlink" title="完结撒花~~（终于写完了）🎉️ 🎉️ 🎉️"></a>完结撒花~~（终于写完了）🎉️ 🎉️ 🎉️</h5><h5 id="PS："><a href="#PS：" class="headerlink" title="PS："></a>PS：</h5><p>（一些资料和图例参考自OIwiki和算法竞赛进阶指南QwQ~,不喜勿喷）</p>
 
-                    </article>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
 
-                    <!-- blog -->
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <!-- title -->
-                            <h5 class="trm-mb-40 trm-title-with-divider">
-                                其他文章
-                                <span data-number="02"></span>
-                            </h5>
-                        </div>
-                        
-                            <div class="col-lg-6">
-    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
-        <a href="/2022/06/11/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95All-in-All/" class="trm-cover-frame trm-anima-link">
-            <img src="https://s2.loli.net/2022/06/11/87x2gykQHJEs4pe.png" alt="cover">
-        </a>
-        <div class="trm-card-descr">
-            <div class="trm-label trm-category trm-mb-20">
-                <a href=" #.">
-                    未分类
-                </a>
-            </div>
-            <h5>
-                <a href="/2022/06/11/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95All-in-All/" class="trm-anima-link">
-                    计算几何All in All
-                </a>
-            </h5>
-            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
-            <ul class="trm-card-data trm-label">
-                <li>
-                    06/11
-                </li>
-                <li>
-                    10:29
-                </li>
-                <li>
-                    8.7k
-                </li>
-            </ul>
-        </div>
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="category-chain-item">学习笔记</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
     </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">#数据结构</a>
+      
+    </div>
+  
 </div>
-                        
-                        
-                    </div>
-                    <!-- blog end -->
 
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>并查集</div>
+      <div>http://example.com/2022/06/09/并查集/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Jekyll_Y</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年6月9日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
                     
-
-                    <div class="trm-divider trm-mb-40"></div>
-
-                    <!-- footer -->
-                    <footer class="trm-scroll-animation" data-scroll data-scroll-offset="50">
-    <div class="trm-label">
-        ©  2022- 2022 ·
-        <span class="trm-accent-color">
-            Jekyll_Y
-        </span>
-    </div>
-    <div class="trm-label">
-        博客已萌萌哒运行:
-        <span id="since" class="trm-accent-color"></span>
-        天
-    </div>
-</footer>
-<script>
-    function show_date_time () {
-        BirthDay = new Date("6/16/2022 22:17:36");
-        today = new Date();
-        timeold = (today.getTime() - BirthDay.getTime());
-        msPerDay = 24 * 60 * 60 * 1000
-        day = Math.floor(timeold / msPerDay)
-        since.innerHTML = day
-    }
-    show_date_time()
-</script>
-                    <!-- footer end -->
+                    
+                      <a href="/2022/06/11/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95All-in-All/" title="计算几何All in All">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">计算几何All in All</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
                 </div>
-                <!-- content end -->
+              
             </div>
+
+            
+          </article>
         </div>
+      </div>
     </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
 </div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
 
 
     
-  
-  
-            <!-- body end -->
-          </div>
-        </div>
-      </div>
-      <!-- scroll container end -->
 
-      <!-- mode switcher -->
-      <div class="trm-hidden-switcher">
-        <div class="trm-mode-switcher"><i class="far fa-sun"></i>
-          <input class="tgl tgl-light" id="trm-swich" type="checkbox">
-          <label class="trm-swich" for="trm-swich"></label>
-          <i class="far fa-moon"></i>
-        </div>
-      </div>
-      <!-- mode switcher end -->
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
   </div>
-  <!-- app wrapper end -->
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
 
   
-<script src="/js/plugins/jquery.min.js"></script>
-<script src="/js/plugins/swup.min.js"></script>
-<script src="/js/plugins/locomotive-scroll.js"></script>
-<script src="/js/plugins/typing.js"></script>
-<script src="/js/plugins/fancybox.min.js"></script>
-<script src="/js/plugins/swiper.min.js"></script>
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
 
 
-<!-- 评论插件 -->
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 
-<!-- Service Worker -->
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
 
 
-<script src="/js/main.js?v=1.0.2"></script>
 
 
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {
@@ -584,7 +812,6 @@
             all[i].SourceElement().parentNode.className += ' has-jax';
     });
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
-
 </html>

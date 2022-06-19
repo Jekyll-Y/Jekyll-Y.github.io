@@ -1,14 +1,22 @@
+
+
 <!DOCTYPE html>
-<html lang="">
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
 
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="x5-fullscreen" content="true">
-<meta name="full-screen" content="yes">
-<meta name="theme-color" content="#317EFB" />
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
-<meta name="keywords" content="">
-<meta name="description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051struct geometric&amp;#123;    double x,y;    geometric(double X&#x3D;0,double Y&#x3D;0):x(X),y(Y) &amp;#123;&amp;#125;    friend">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="https://s2.loli.net/2022/06/16/tYjEKklV2yFiIPx.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Jekyll_Y">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051struct geometric&amp;#123;    double x,y;    geometric(double X&#x3D;0,double Y&#x3D;0):x(X),y(Y) &amp;#123;&amp;#125;    friend">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算几何小车头">
 <meta property="og:url" content="http://example.com/2022/06/14/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E5%B0%8F%E8%BD%A6%E5%A4%B4/index.html">
@@ -17,494 +25,688 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://z4a.net/images/2022/06/16/93702888_p0---.jpg">
 <meta property="article:published_time" content="2022-06-14T14:52:49.000Z">
-<meta property="article:modified_time" content="2022-06-17T11:06:03.131Z">
+<meta property="article:modified_time" content="2022-06-19T13:04:27.259Z">
 <meta property="article:author" content="Jekyll_Y">
 <meta property="article:tag" content="计算几何">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://z4a.net/images/2022/06/16/93702888_p0---.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>计算几何小车头 - Jekyll_Y的小窝</title>
 
-    <meta name="description" content="Doctor,您还有很多事情要做,现在还不能休息哦.">
-
-<title>
-    计算几何小车头
-</title>
-
-    <link rel="icon" type="image/png" sizes="16x16" href="https://s2.loli.net/2022/06/16/tYjEKklV2yFiIPx.jpg?v=1.0.2">
-
-
-    <link rel="icon" type="image/png" sizes="32x32" href="https://s2.loli.net/2022/06/16/tYjEKklV2yFiIPx.jpg?v=1.0.2">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
 
-<link rel="preload" href="//at.alicdn.com/t/font_1518765_bkgx3wku6h4.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1518765_bkgx3wku6h4.css">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
-<link rel="stylesheet" href="/css/plugins/bootstrap.min.css">
-<link rel="stylesheet" href="/css/plugins/locomotive-scroll.css">
-<link rel="stylesheet" href="/css/plugins/swiper.min.css">
-<link rel="stylesheet" href="/css/plugins/fancybox.min.css">
-<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
 
 
-<!-- variable -->
-<script>window.TYPED_TEXT=[
-  "and A Doctor"
-]</script>
-<script>window.FAVICON={
-  "icon16": "https://s2.loli.net/2022/06/16/tYjEKklV2yFiIPx.jpg",
-  "icon32": "https://s2.loli.net/2022/06/16/tYjEKklV2yFiIPx.jpg",
-  "appleTouchIcon": null,
-  "webmanifest": null,
-  "visibilitychange": true,
-  "hidden": null,
-  "showText": "(/≧▽≦/)咦！又好了！",
-  "hideText": "(●—●)喔哟，崩溃啦！"
-}</script>
-<script>window.HTMEM_VERSION='1.0.2'</script>
-<link data-theme-type="style-light" rel="stylesheet" href="/css/style-light.css?v=1.0.2" id="trm-switch-style">
-<link data-theme-type="style-dark" rel="stylesheet" href="/css/style-dark.css?v=1.0.2" id="trm-switch-style">
 
-<!-- theme css -->
-<script>
-    let themeMode = localStorage.getItem('theme-mode') === 'style-dark' ? 'style-light' : 'style-dark';
-    let linkdom = document.querySelector('[data-theme-type='+themeMode+']');
-    if(linkdom) linkdom.remove();
-</script>
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
-<!-- Site Analytics -->
- 
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"c++"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
 <meta name="generator" content="Hexo 6.2.0"></head>
 
+
 <body>
+  
 
-  <!-- app wrapper -->
-  <div class="trm-app-frame">
+  <header>
+    
 
-    <!-- page preloader -->
-    <div class="trm-preloader">
-    <div class="trm-holder">
-        <div class="preloader">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
-</div>
-    <!-- page preloader end -->
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Jekyll_Y的小窝</strong>
+    </a>
 
-    <!-- change mode preloader -->
-    <div class="trm-mode-swich-animation-frame">
-    <div class="trm-mode-swich-animation"><i class="far fa-sun"></i>
-        <div class="trm-horizon"></div>
-        <i class="far fa-moon"></i>
-    </div>
-</div>
-    <!-- change mode preloader end -->
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
 
-      <!-- scroll container -->
-      <div id="trm-dynamic-content" class="trm-swup-animation">
-        <div id="trm-scroll-container" class="trm-scroll-container" data-scroll-container style="opacity: 0">
-          <div data-scroll-section id="content" class="trm-scroll-section">
-            <!-- top bar -->
-            <div class="trm-top-bar" data-scroll data-scroll-sticky data-scroll-target="#content" data-scroll-offset="-10">
-	<div class="container">
-		<div class="trm-left-side">
-			<!-- logo -->
-			<a href="/" class="trm-logo-frame trm-anima-link">
-				<img src="https://s2.loli.net/2022/06/16/tYjEKklV2yFiIPx.jpg" alt="logo">
-				<div class="trm-logo-text">
-					Yang
-					<span>Jekyll</span>
-				</div>
-			</a>
-			<!-- logo end -->
-		</div>
-		<div class="trm-right-side">
-
-			<!-- menu -->
-			<div class="trm-menu">
-				<nav>
-					<ul>
-						
-						<li class="menu-item-has-children ">
-							<a  href="/">
-								首页
-							</a>
-							
-						</li>
-						
-						<li class="menu-item-has-children ">
-							<a  href="/archives/">
-								归档
-							</a>
-							
-						</li>
-						
-						<li class="menu-item-has-children ">
-							<a  href="/links/">
-								友链
-							</a>
-							
-						</li>
-						
-						<li class="menu-item-has-children ">
-							<a  href="/about/">
-								关于
-							</a>
-							
-						</li>
-						
-					</ul>
-				</nav>
-			</div>
-			<!-- menu end -->
-
-			<!-- mode switcher place -->
-			<div class="trm-mode-switcher-place"></div>
-			<!-- mode switcher place end -->
-
-		</div>
-		<div class="trm-menu-btn">
-			<span></span>
-		</div>
-	</div>
-</div>
-            <!-- top bar end -->
-
-            <!-- body -->
-            <div class="trm-content-start">
-
-    <!-- banner -->
-    <div class="trm-banner" data-scroll data-scroll-direction="vertical">
-    <!-- banner cover -->
-    <img src="https://s2.loli.net/2022/06/09/BEzraTkQxNFvuG3.jpg" alt="banner" class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-3">
-    <!-- banner cover end -->
-
-    <!-- banner slideshow cover-->
-    <!-- <div class="swiper-container trm-slideshow" data-scroll data-scroll-direction="vertical" data-scroll-speed="-4">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="/img/blog/b1.jpg" alt="banner" class="trm-banner-cover" data-swiper-parallax-y="-200" data-swiper-parallax-scale="1.2"></div>
-            <div class="swiper-slide"><img src="/img/blog/b2.jpg" alt="banner" class="trm-banner-cover" data-swiper-parallax-y="-200" data-swiper-parallax-scale="1.2"></div>
-            <div class="swiper-slide"><img src="/img/blog/b3.jpg" alt="banner" class="trm-banner-cover" data-swiper-parallax-y="-200" data-swiper-parallax-scale="1.2"></div>
-        </div>
-    </div> -->
-    <!-- banner slideshow cover end -->
-
-    <!-- banner video cover -->
-    <!-- <video autoplay="autoplay" loop muted playsinline webkit-playinginline class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-4">
-        <source src="img/banner.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-        <source src="img/banner.webm" type='video/webm; codecs="vp8, vorbis"'>
-        <source src="img/banner.ogg" type='video/ogg; codecs="theora, vorbis"'>
-        Your browser does not support HTML5 video.
-    </video> -->
-    <!-- banner video cover end -->
-
-    <!-- banner cover end -->
-
-    <!-- banner content -->
-    <div class="trm-banner-content trm-overlay">
-        <div class="container" data-scroll data-scroll-direction="vertical" data-scroll-speed="0">
-            <div class="row">
-                <div class="col-lg-4"></div>
-                <div class="col-lg-8">
-
-                    <!-- banner title -->
-                    <div class="trm-banner-text">
-                        <div class="trm-label trm-mb-20">
-                            NEWS LETTER
-                        </div>
-                        <h1 class="trm-mb-30 trm-hsmb-font">
-                            计算几何小车头
-                        </h1>
-
-                        
-                            <ul class="trm-breadcrumbs trm-label">
-                                <li>
-                                    <a href="/" class="trm-anima-link">Home</a>
-                                </li>
-                                <li>
-                                    <span>
-                                        2022
-                                    </span
-                                ></li>
-                            </ul>
-                        
-                    </div>
-                    <!-- banner title end -->
-
-                    <!-- scroll hint -->
-                    <a href="#about-triger" data-scroll-to="#about-triger" data-scroll-offset="-130" class="trm-scroll-hint-frame">
-                        <div class="trm-scroll-hint"></div>
-                        <span class="trm-label">Scroll down</span>
-                    </a>
-                    <!-- scroll hint end -->
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- banner content end -->
-</div>
-    <!-- banner end -->
-
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4">
-                <!-- main card -->
-                <div class="trm-main-card-frame trm-sidebar">
-    <div class="trm-main-card" data-scroll data-scroll-repeat data-scroll-sticky data-scroll-target="#content" data-scroll-offset="60">
-        <!-- card header -->
-        <div class="trm-mc-header">
-            <div class="trm-avatar-frame trm-mb-20"><img class="trm-avatar" src="https://s2.loli.net/2022/06/09/iDk4sYynCP83ed1.jpg" alt="Avatar"> </div>
-            <h5 class="trm-name trm-mb-15">
-                Jekyll_Y
-            </h5>
-            <div class="trm-label">
-                An OIer
-                <span class="trm-typed-text">
-                    <!-- Words for theme.user.typedText -->
-                </span>
-            </div>
-        </div>
-        <!-- card header end -->
-        <div class="trm-divider trm-mb-40 trm-mt-40"></div>
-        <!-- sidebar social -->
-        <div class="trm-social">
-            
-                <a href="https://jekyll-y.github.io/" rel="nofollow" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-            
-        </div>
-        <!-- sidebar social end -->
-        <div class="trm-divider trm-mb-40 trm-mt-40"></div>
-        <!-- info -->
-        <ul class="trm-table trm-mb-20">
-            
-                <li>
-                    <div class="trm-label">
-                        Residence:
-                    </div>
-                    <div class="trm-label trm-label-light">
-                        泰拉
-                    </div>
-                </li>
-            
-                <li>
-                    <div class="trm-label">
-                        City:
-                    </div>
-                    <div class="trm-label trm-label-light">
-                        Rhodes Island
-                    </div>
-                </li>
-            
-                <li>
-                    <div class="trm-label">
-                        Age:
-                    </div>
-                    <div class="trm-label trm-label-light">
-                        114514
-                    </div>
-                </li>
-            
-        </ul>
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
     </div>
-</div>
-                <!-- main card end -->
-            </div>
-            <div class="col-lg-8">
-                <!-- content -->
-                <div class="trm-content" id="trm-content">
-                    <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger"></div>
-                    
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="trm-card trm-label trm-label-light text-center"><i class="far fa-calendar-alt trm-icon"></i><br>
-                                06/14
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="trm-card trm-label trm-label-light text-center"><i class="far fa-clock trm-icon"></i><br>
-                                10:52
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="trm-card trm-label trm-label-light text-center"><i class="far fa-user trm-icon"></i><br>
-                                Jekyll_Y
-                            </div>
-                        </div>
-                    </div>
+  </div>
+</nav>
 
-                    <article class="trm-card trm-publication">
-                        <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">geometric</span>&#123;</span><br><span class="line">    <span class="type">double</span> x,y;</span><br><span class="line">    <span class="built_in">geometric</span>(<span class="type">double</span> X=<span class="number">0</span>,<span class="type">double</span> Y=<span class="number">0</span>):<span class="built_in">x</span>(X),<span class="built_in">y</span>(Y) &#123;&#125;</span><br><span class="line">    <span class="keyword">friend</span> geometric <span class="keyword">operator</span> + (<span class="type">const</span> geometric a,<span class="type">const</span> geometric b)&#123;<span class="keyword">return</span> <span class="built_in">geometric</span>(a.x+b.x,a.y+b.y);&#125; </span><br><span class="line">    <span class="keyword">friend</span> geometric <span class="keyword">operator</span> - (<span class="type">const</span> geometric a,<span class="type">const</span> geometric b)&#123;<span class="keyword">return</span> <span class="built_in">geometric</span>(a.x-b.x,a.y-b.y);&#125; </span><br><span class="line">    <span class="keyword">friend</span> geometric <span class="keyword">operator</span> * (<span class="type">const</span> geometric a,<span class="type">double</span> p)&#123;<span class="keyword">return</span> <span class="built_in">geometric</span>(a.x*p,a.y*p);&#125;</span><br><span class="line">    <span class="keyword">friend</span> geometric <span class="keyword">operator</span> / (<span class="type">const</span> geometric a,<span class="type">double</span> p)&#123;<span class="keyword">return</span> <span class="built_in">geometric</span>(a.x/p,a.y/p);&#125;<span class="comment">// 向量的四则运算</span></span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">dis</span><span class="params">(geometric a,geometric b)</span></span>&#123;<span class="keyword">return</span> <span class="built_in">sqrt</span>((a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y));&#125; <span class="comment">// 向量模长</span></span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">dot</span><span class="params">(geometric a1,geometric a2,geometric b1,geometric b2)</span></span>&#123;<span class="keyword">return</span> (a2.x-a1.x)*(b2.x-b1.x)+(a2.y-a1.y)*(b2.y-b1.y);&#125;<span class="comment">// 点积</span></span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">cross</span><span class="params">(geometric a1,geometric a2,geometric b1,geometric b2)</span></span>&#123;<span class="keyword">return</span> (a2.x-a1.x)*(b2.y-b1.y)-(a2.y-a1.y)*(b2.x-b1.x);&#125; <span class="comment">// 叉积</span></span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">corner</span><span class="params">(geometric a1,geometric a2,geometric b1,geometric b2)</span></span>&#123;<span class="keyword">return</span> <span class="built_in">dot</span>(a1,a1,b1,b2)/(<span class="built_in">dis</span>(a1,a2)*<span class="built_in">dis</span>(b1,b2));&#125;<span class="comment">// 向量夹角</span></span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">area</span><span class="params">(geometric a1,geometric a2,geometric b1,geometric b2)</span></span>&#123;<span class="keyword">return</span> <span class="built_in">fabs</span>(<span class="built_in">cross</span>(a1,a2,b1,b2));&#125;<span class="comment">// 两向量围成的四边形面积</span></span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">angle</span><span class="params">(geometric a)</span></span>&#123;<span class="keyword">return</span> <span class="built_in">atan2</span>(a.y,a.x);&#125;<span class="comment">// 极角</span></span><br><span class="line">	<span class="function">geometric <span class="title">rotate_clockwise</span><span class="params">(geometric a,<span class="type">double</span> theta)</span></span>&#123;<span class="keyword">return</span> <span class="built_in">geometric</span>(a.x*<span class="built_in">cos</span>(theta)-a.y*<span class="built_in">sin</span>(theta),a.x*<span class="built_in">sin</span>(theta)+a.y*<span class="built_in">cos</span>(theta));&#125; <span class="comment">// 向量顺时针旋转</span></span><br><span class="line">    <span class="function">geometric <span class="title">rotate_counterclockwise</span><span class="params">(geometric a,<span class="type">double</span> theta)</span></span>&#123;<span class="keyword">return</span> <span class="built_in">geometric</span>(a.x*<span class="built_in">cos</span>(theta)+a.y*<span class="built_in">sin</span>(theta),-a.x*<span class="built_in">sin</span>(theta)+a.y*<span class="built_in">cos</span>(theta));&#125; <span class="comment">// 向量逆时针旋转</span></span><br><span class="line">&#125;opt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">line</span>&#123;</span><br><span class="line">    geometric A,B;<span class="type">double</span> An;</span><br><span class="line">    <span class="built_in">line</span>(geometric a,geometric b):<span class="built_in">A</span>(a),<span class="built_in">B</span>(b) &#123;An=opt.<span class="built_in">angle</span>(B);&#125;</span><br><span class="line">    <span class="built_in">line</span>()&#123;&#125;</span><br><span class="line">	<span class="type">bool</span> <span class="keyword">operator</span> &lt; (<span class="type">const</span> line &amp;a)<span class="type">const</span>&#123;<span class="keyword">return</span> An&lt;a.An;&#125;</span><br><span class="line">    <span class="function">geometric <span class="title">sdot</span><span class="params">(line a,line b)</span></span>&#123;</span><br><span class="line">        geometric c=a.A-b.A;</span><br><span class="line">        <span class="type">double</span> k=opt.<span class="built_in">cross</span>(origin,b.B,origin,c)/opt.<span class="built_in">cross</span>(origin,a.B,origin,b.B);</span><br><span class="line">        <span class="keyword">return</span> a.A+a.B*k;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 二维计算几何</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">geometric</span>&#123;</span><br><span class="line">    <span class="type">double</span> x,y,z;</span><br><span class="line">    <span class="built_in">geometric</span>(<span class="type">double</span> X=<span class="number">0</span>,<span class="type">double</span> Y=<span class="number">0</span>,<span class="type">double</span> Z=<span class="number">0</span>):<span class="built_in">x</span>(X),<span class="built_in">y</span>(Y),<span class="built_in">z</span>(Z) &#123;&#125;</span><br><span class="line">    <span class="keyword">friend</span> geometric <span class="keyword">operator</span> + (<span class="type">const</span> geometric a,<span class="type">const</span> geometric b)&#123;<span class="keyword">return</span> <span class="built_in">geometric</span>(a.x+b.x,a.y+b.y,a.z+b.z);&#125; </span><br><span class="line">    <span class="keyword">friend</span> geometric <span class="keyword">operator</span> - (<span class="type">const</span> geometric a,<span class="type">const</span> geometric b)&#123;<span class="keyword">return</span> <span class="built_in">geometric</span>(a.x-b.x,a.y-b.y,a.z-b.z);&#125; </span><br><span class="line">    <span class="keyword">friend</span> geometric <span class="keyword">operator</span> * (<span class="type">const</span> geometric a,<span class="type">double</span> p)&#123;<span class="keyword">return</span> <span class="built_in">geometric</span>(a.x*p,a.y*p,a.z*p);&#125;</span><br><span class="line">    <span class="keyword">friend</span> geometric <span class="keyword">operator</span> / (<span class="type">const</span> geometric a,<span class="type">double</span> p)&#123;<span class="keyword">return</span> <span class="built_in">geometric</span>(a.x/p,a.y/p,a.z/p);&#125;<span class="comment">// 向量的四则运算</span></span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">dis</span><span class="params">(geometric a,geometric b)</span></span>&#123;<span class="keyword">return</span> <span class="built_in">sqrt</span>((a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y)+(a.z-b.z)*(a.z-b.z));&#125; <span class="comment">// 向量模长</span></span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">dot</span><span class="params">(geometric a1,geometric a2,geometric b1,geometric b2)</span></span>&#123;<span class="keyword">return</span> (a2.x-a1.x)*(b2.x-b1.x)+(a2.y-a1.y)*(b2.y-b1.y)+(a2.z-a1.z)*(b2.z-b1.z);&#125;<span class="comment">// 点积</span></span><br><span class="line">    <span class="function">geometric <span class="title">cross</span><span class="params">(geometric a1,geometric a2,geometric b1,geometric b2)</span></span>&#123;geometric a,b;<span class="keyword">return</span> <span class="built_in">geometric</span>(a.y*b.z-b.y*a.z,b.x*a.z-a.x*b.z,a.x*b.y-b.x*a.y);&#125; <span class="comment">// 叉积</span></span><br><span class="line">&#125;opt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">plane</span>&#123;</span><br><span class="line">    geometric a,b,c;</span><br><span class="line">    <span class="built_in">plane</span>(geometric A=origin,geometric B=origin,geometric C=origin):<span class="built_in">a</span>(A),<span class="built_in">b</span>(B),<span class="built_in">c</span>(C) &#123;&#125;</span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">area</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> <span class="built_in">fabs</span>(opt.<span class="built_in">dis</span>(origin,opt.<span class="built_in">cross</span>(a,b,a,c)))/<span class="number">2.0</span>;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 平面</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 三维计算几何</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-                    </article>
+  
 
-                    <!-- blog -->
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <!-- title -->
-                            <h5 class="trm-mb-40 trm-title-with-divider">
-                                其他文章
-                                <span data-number="02"></span>
-                            </h5>
-                        </div>
-                        
-                            <div class="col-lg-6">
-    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
-        <a href="/2022/06/15/%E9%AB%98%E7%BA%A7%E4%BD%9C%E6%88%98%E8%AE%B0%E5%BD%95/" class="trm-cover-frame trm-anima-link">
-            <img src="https://z4a.net/images/2022/06/16/97935801_p0---.jpg" alt="cover">
-        </a>
-        <div class="trm-card-descr">
-            <div class="trm-label trm-category trm-mb-20">
-                <a href=" #.">
-                    未分类
-                </a>
-            </div>
-            <h5>
-                <a href="/2022/06/15/%E9%AB%98%E7%BA%A7%E4%BD%9C%E6%88%98%E8%AE%B0%E5%BD%95/" class="trm-anima-link">
-                    高级作战记录
-                </a>
-            </h5>
-            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
-            <ul class="trm-card-data trm-label">
-                <li>
-                    06/15
-                </li>
-                <li>
-                    10:29
-                </li>
-                <li>
-                    65
-                </li>
-            </ul>
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://z4a.net/images/2022/06/16/93702888_p0---.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="计算几何小车头"></span>
+          
         </div>
-    </div>
-</div>
-                        
-                        
-                            <div class="col-lg-6">
-    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
-        <a href="/2022/06/14/%E6%AC%A7%E6%8B%89%E8%B7%AF%E6%B5%85%E8%B0%88/" class="trm-cover-frame trm-anima-link">
-            <img src="https://z4a.net/images/2022/06/13/98913800_p0.jpg" alt="cover">
-        </a>
-        <div class="trm-card-descr">
-            <div class="trm-label trm-category trm-mb-20">
-                <a href=" #.">
-                    未分类
-                </a>
-            </div>
-            <h5>
-                <a href="/2022/06/14/%E6%AC%A7%E6%8B%89%E8%B7%AF%E6%B5%85%E8%B0%88/" class="trm-anima-link">
-                    欧拉路浅谈
-                </a>
-            </h5>
-            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
-            <ul class="trm-card-data trm-label">
-                <li>
-                    06/14
-                </li>
-                <li>
-                    10:34
-                </li>
-                <li>
-                    847
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-                        
-                    </div>
-                    <!-- blog end -->
 
-                    
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Jekyll_Y
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-06-14 22:52" pubdate>
+          2022年6月14日 晚上
+        </time>
+      </span>
+    
+  </div>
 
-                    <div class="trm-divider trm-mb-40"></div>
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.1k 字
+        
+      </span>
+    
 
-                    <!-- footer -->
-                    <footer class="trm-scroll-animation" data-scroll data-scroll-offset="50">
-    <div class="trm-label">
-        ©  2022- 2022 ·
-        <span class="trm-accent-color">
-            Jekyll_Y
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          26 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
         </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
     </div>
-    <div class="trm-label">
-        博客已萌萌哒运行:
-        <span id="since" class="trm-accent-color"></span>
-        天
-    </div>
-</footer>
-<script>
-    function show_date_time () {
-        BirthDay = new Date("6/16/2022 22:17:36");
-        today = new Date();
-        timeold = (today.getTime() - BirthDay.getTime());
-        msPerDay = 24 * 60 * 60 * 1000
-        day = Math.floor(timeold / msPerDay)
-        since.innerHTML = day
-    }
-    show_date_time()
-</script>
-                    <!-- footer end -->
-                </div>
-                <!-- content end -->
-            </div>
-        </div>
-    </div>
+  </div>
 </div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">计算几何小车头</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">geometric</span>&#123;<br>    <span class="hljs-type">double</span> x,y;<br>    <span class="hljs-built_in">geometric</span>(<span class="hljs-type">double</span> X=<span class="hljs-number">0</span>,<span class="hljs-type">double</span> Y=<span class="hljs-number">0</span>):<span class="hljs-built_in">x</span>(X),<span class="hljs-built_in">y</span>(Y) &#123;&#125;<br>    <span class="hljs-keyword">friend</span> geometric <span class="hljs-keyword">operator</span> + (<span class="hljs-type">const</span> geometric a,<span class="hljs-type">const</span> geometric b)&#123;<span class="hljs-keyword">return</span> <span class="hljs-built_in">geometric</span>(a.x+b.x,a.y+b.y);&#125; <br>    <span class="hljs-keyword">friend</span> geometric <span class="hljs-keyword">operator</span> - (<span class="hljs-type">const</span> geometric a,<span class="hljs-type">const</span> geometric b)&#123;<span class="hljs-keyword">return</span> <span class="hljs-built_in">geometric</span>(a.x-b.x,a.y-b.y);&#125; <br>    <span class="hljs-keyword">friend</span> geometric <span class="hljs-keyword">operator</span> * (<span class="hljs-type">const</span> geometric a,<span class="hljs-type">double</span> p)&#123;<span class="hljs-keyword">return</span> <span class="hljs-built_in">geometric</span>(a.x*p,a.y*p);&#125;<br>    <span class="hljs-keyword">friend</span> geometric <span class="hljs-keyword">operator</span> / (<span class="hljs-type">const</span> geometric a,<span class="hljs-type">double</span> p)&#123;<span class="hljs-keyword">return</span> <span class="hljs-built_in">geometric</span>(a.x/p,a.y/p);&#125;<span class="hljs-comment">// 向量的四则运算</span><br>    <span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">dis</span><span class="hljs-params">(geometric a,geometric b)</span></span>&#123;<span class="hljs-keyword">return</span> <span class="hljs-built_in">sqrt</span>((a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y));&#125; <span class="hljs-comment">// 向量模长</span><br>    <span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">dot</span><span class="hljs-params">(geometric a1,geometric a2,geometric b1,geometric b2)</span></span>&#123;<span class="hljs-keyword">return</span> (a2.x-a1.x)*(b2.x-b1.x)+(a2.y-a1.y)*(b2.y-b1.y);&#125;<span class="hljs-comment">// 点积</span><br>    <span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">cross</span><span class="hljs-params">(geometric a1,geometric a2,geometric b1,geometric b2)</span></span>&#123;<span class="hljs-keyword">return</span> (a2.x-a1.x)*(b2.y-b1.y)-(a2.y-a1.y)*(b2.x-b1.x);&#125; <span class="hljs-comment">// 叉积</span><br>    <span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">corner</span><span class="hljs-params">(geometric a1,geometric a2,geometric b1,geometric b2)</span></span>&#123;<span class="hljs-keyword">return</span> <span class="hljs-built_in">dot</span>(a1,a1,b1,b2)/(<span class="hljs-built_in">dis</span>(a1,a2)*<span class="hljs-built_in">dis</span>(b1,b2));&#125;<span class="hljs-comment">// 向量夹角</span><br>    <span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">area</span><span class="hljs-params">(geometric a1,geometric a2,geometric b1,geometric b2)</span></span>&#123;<span class="hljs-keyword">return</span> <span class="hljs-built_in">fabs</span>(<span class="hljs-built_in">cross</span>(a1,a2,b1,b2));&#125;<span class="hljs-comment">// 两向量围成的四边形面积</span><br>    <span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">angle</span><span class="hljs-params">(geometric a)</span></span>&#123;<span class="hljs-keyword">return</span> <span class="hljs-built_in">atan2</span>(a.y,a.x);&#125;<span class="hljs-comment">// 极角</span><br>	<span class="hljs-function">geometric <span class="hljs-title">rotate_clockwise</span><span class="hljs-params">(geometric a,<span class="hljs-type">double</span> theta)</span></span>&#123;<span class="hljs-keyword">return</span> <span class="hljs-built_in">geometric</span>(a.x*<span class="hljs-built_in">cos</span>(theta)-a.y*<span class="hljs-built_in">sin</span>(theta),a.x*<span class="hljs-built_in">sin</span>(theta)+a.y*<span class="hljs-built_in">cos</span>(theta));&#125; <span class="hljs-comment">// 向量顺时针旋转</span><br>    <span class="hljs-function">geometric <span class="hljs-title">rotate_counterclockwise</span><span class="hljs-params">(geometric a,<span class="hljs-type">double</span> theta)</span></span>&#123;<span class="hljs-keyword">return</span> <span class="hljs-built_in">geometric</span>(a.x*<span class="hljs-built_in">cos</span>(theta)+a.y*<span class="hljs-built_in">sin</span>(theta),-a.x*<span class="hljs-built_in">sin</span>(theta)+a.y*<span class="hljs-built_in">cos</span>(theta));&#125; <span class="hljs-comment">// 向量逆时针旋转</span><br>&#125;opt;<br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">line</span>&#123;<br>    geometric A,B;<span class="hljs-type">double</span> An;<br>    <span class="hljs-built_in">line</span>(geometric a,geometric b):<span class="hljs-built_in">A</span>(a),<span class="hljs-built_in">B</span>(b) &#123;An=opt.<span class="hljs-built_in">angle</span>(B);&#125;<br>    <span class="hljs-built_in">line</span>()&#123;&#125;<br>	<span class="hljs-type">bool</span> <span class="hljs-keyword">operator</span> &lt; (<span class="hljs-type">const</span> line &amp;a)<span class="hljs-type">const</span>&#123;<span class="hljs-keyword">return</span> An&lt;a.An;&#125;<br>    <span class="hljs-function">geometric <span class="hljs-title">sdot</span><span class="hljs-params">(line a,line b)</span></span>&#123;<br>        geometric c=a.A-b.A;<br>        <span class="hljs-type">double</span> k=opt.<span class="hljs-built_in">cross</span>(origin,b.B,origin,c)/opt.<span class="hljs-built_in">cross</span>(origin,a.B,origin,b.B);<br>        <span class="hljs-keyword">return</span> a.A+a.B*k;<br>    &#125;<br>&#125;;<br><span class="hljs-comment">// 二维计算几何</span><br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">geometric</span>&#123;<br>    <span class="hljs-type">double</span> x,y,z;<br>    <span class="hljs-built_in">geometric</span>(<span class="hljs-type">double</span> X=<span class="hljs-number">0</span>,<span class="hljs-type">double</span> Y=<span class="hljs-number">0</span>,<span class="hljs-type">double</span> Z=<span class="hljs-number">0</span>):<span class="hljs-built_in">x</span>(X),<span class="hljs-built_in">y</span>(Y),<span class="hljs-built_in">z</span>(Z) &#123;&#125;<br>    <span class="hljs-keyword">friend</span> geometric <span class="hljs-keyword">operator</span> + (<span class="hljs-type">const</span> geometric a,<span class="hljs-type">const</span> geometric b)&#123;<span class="hljs-keyword">return</span> <span class="hljs-built_in">geometric</span>(a.x+b.x,a.y+b.y,a.z+b.z);&#125; <br>    <span class="hljs-keyword">friend</span> geometric <span class="hljs-keyword">operator</span> - (<span class="hljs-type">const</span> geometric a,<span class="hljs-type">const</span> geometric b)&#123;<span class="hljs-keyword">return</span> <span class="hljs-built_in">geometric</span>(a.x-b.x,a.y-b.y,a.z-b.z);&#125; <br>    <span class="hljs-keyword">friend</span> geometric <span class="hljs-keyword">operator</span> * (<span class="hljs-type">const</span> geometric a,<span class="hljs-type">double</span> p)&#123;<span class="hljs-keyword">return</span> <span class="hljs-built_in">geometric</span>(a.x*p,a.y*p,a.z*p);&#125;<br>    <span class="hljs-keyword">friend</span> geometric <span class="hljs-keyword">operator</span> / (<span class="hljs-type">const</span> geometric a,<span class="hljs-type">double</span> p)&#123;<span class="hljs-keyword">return</span> <span class="hljs-built_in">geometric</span>(a.x/p,a.y/p,a.z/p);&#125;<span class="hljs-comment">// 向量的四则运算</span><br>    <span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">dis</span><span class="hljs-params">(geometric a,geometric b)</span></span>&#123;<span class="hljs-keyword">return</span> <span class="hljs-built_in">sqrt</span>((a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y)+(a.z-b.z)*(a.z-b.z));&#125; <span class="hljs-comment">// 向量模长</span><br>    <span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">dot</span><span class="hljs-params">(geometric a1,geometric a2,geometric b1,geometric b2)</span></span>&#123;<span class="hljs-keyword">return</span> (a2.x-a1.x)*(b2.x-b1.x)+(a2.y-a1.y)*(b2.y-b1.y)+(a2.z-a1.z)*(b2.z-b1.z);&#125;<span class="hljs-comment">// 点积</span><br>    <span class="hljs-function">geometric <span class="hljs-title">cross</span><span class="hljs-params">(geometric a1,geometric a2,geometric b1,geometric b2)</span></span>&#123;geometric a,b;<span class="hljs-keyword">return</span> <span class="hljs-built_in">geometric</span>(a.y*b.z-b.y*a.z,b.x*a.z-a.x*b.z,a.x*b.y-b.x*a.y);&#125; <span class="hljs-comment">// 叉积</span><br>&#125;opt;<br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">plane</span>&#123;<br>    geometric a,b,c;<br>    <span class="hljs-built_in">plane</span>(geometric A=origin,geometric B=origin,geometric C=origin):<span class="hljs-built_in">a</span>(A),<span class="hljs-built_in">b</span>(B),<span class="hljs-built_in">c</span>(C) &#123;&#125;<br>    <span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">area</span><span class="hljs-params">()</span></span>&#123;<span class="hljs-keyword">return</span> <span class="hljs-built_in">fabs</span>(opt.<span class="hljs-built_in">dis</span>(origin,opt.<span class="hljs-built_in">cross</span>(a,b,a,c)))/<span class="hljs-number">2.0</span>;&#125;<br>&#125;;<br><span class="hljs-comment">// 平面</span><br><br><span class="hljs-comment">// 三维计算几何</span><br><br></code></pre></td></tr></table></figure>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%9D%BF%E5%AD%90/" class="category-chain-item">板子</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/">#计算几何</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>计算几何小车头</div>
+      <div>http://example.com/2022/06/14/计算几何小车头/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Jekyll_Y</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年6月14日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/06/15/%E9%AB%98%E7%BA%A7%E4%BD%9C%E6%88%98%E8%AE%B0%E5%BD%95/" title="高级作战记录">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">高级作战记录</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/06/14/%E6%AC%A7%E6%8B%89%E8%B7%AF%E6%B5%85%E8%B0%88/" title="欧拉路浅谈">
+                        <span class="hidden-mobile">欧拉路浅谈</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
 
 
     
-  
-  
-            <!-- body end -->
-          </div>
-        </div>
-      </div>
-      <!-- scroll container end -->
 
-      <!-- mode switcher -->
-      <div class="trm-hidden-switcher">
-        <div class="trm-mode-switcher"><i class="far fa-sun"></i>
-          <input class="tgl tgl-light" id="trm-swich" type="checkbox">
-          <label class="trm-swich" for="trm-swich"></label>
-          <i class="far fa-moon"></i>
-        </div>
-      </div>
-      <!-- mode switcher end -->
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
   </div>
-  <!-- app wrapper end -->
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
 
   
-<script src="/js/plugins/jquery.min.js"></script>
-<script src="/js/plugins/swup.min.js"></script>
-<script src="/js/plugins/locomotive-scroll.js"></script>
-<script src="/js/plugins/typing.js"></script>
-<script src="/js/plugins/fancybox.min.js"></script>
-<script src="/js/plugins/swiper.min.js"></script>
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
 
 
-<!-- 评论插件 -->
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 
-<!-- Service Worker -->
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
 
 
-<script src="/js/main.js?v=1.0.2"></script>
 
 
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {
@@ -519,7 +721,6 @@
             all[i].SourceElement().parentNode.className += ' has-jax';
     });
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
-
 </html>
