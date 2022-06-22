@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2022/06/11/87x2gykQHJEs4pe.png">
 <meta property="article:published_time" content="2022-06-11T14:29:03.000Z">
-<meta property="article:modified_time" content="2022-06-22T01:34:24.481Z">
+<meta property="article:modified_time" content="2022-06-22T14:27:58.373Z">
 <meta property="article:author" content="Jekyll_Y">
 <meta property="article:tag" content="计算几何">
 <meta name="twitter:card" content="summary_large_image">
@@ -326,7 +326,7 @@
 <p>计算几何研究的对象是几何图形。早期人们对于图像的研究一般都是先建立坐标系，把图形转换成函数，然后用插值和逼近的数学方法，特别是用样条函数作为工具来分析图形，取得了可喜的成功。然而，这些方法过多地依赖于坐标系的选取，缺乏几何不变性，特别是用来解决某些大挠度曲线及曲线的奇异点等问题时，有一定的局限性。</p>
 </blockquote>
 <h2 id="平面直角坐标系"><a href="#平面直角坐标系" class="headerlink" title="平面直角坐标系"></a>平面直角坐标系</h2><p>平面直角坐标系其实就是笛卡尔坐标系，在计算几何中，我们经常会用到坐标表示，点和向量都是通过<strong>坐标</strong>来保存的。</p>
-<h2 id="向量及其运算"><a href="#向量及其运算" class="headerlink" title="向量及其运算"></a>向量及其运算</h2><h3 id="向量的基础知识"><a href="#向量的基础知识" class="headerlink" title="向量的基础知识"></a>向量的基础知识</h3><p><img src="assets/20220106_172403_4.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<h2 id="向量及其运算"><a href="#向量及其运算" class="headerlink" title="向量及其运算"></a>向量及其运算</h2><h3 id="向量的基础知识"><a href="#向量的基础知识" class="headerlink" title="向量的基础知识"></a>向量的基础知识</h3><p><img src="https://s2.loli.net/2022/06/22/N9uaPMp6bX2UZim.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><strong>向量</strong>（也称为欧几里得向量、几何向量、矢量）：既有<strong>大小又有方向</strong>的量称为向量。在数学中研究的向量为<strong>自由向量</strong>，即只要不改变它的大小和方向，起点和终点可以任意平行移动的向量。记$\vec{a}$或<strong>a</strong>。</p>
 <p><strong>有向线段</strong>：带有方向的线段称为有向线段。有向线段三要素：<strong>起点，方向，长度</strong>，有了三要素，终点就唯一确定。我们用有向线段表示向量。</p>
 <p><strong>向量的模</strong>：有向线段$\overrightarrow{AB}$的长度称为向量的模，其实就是向量的大小。即为$|\overrightarrow{AB}|$或$|\vec{a}|$。</p>
@@ -348,7 +348,7 @@
 <li><strong>平行四边形法则</strong>：若要求和的两个向量<strong>共起点</strong>，那么它们的和向量为以这两个向量为邻边的平行四边形的对角线，起点为两个向量共有的起点，方向沿平行四边形对角线方向。</li>
 </ul>
 <p>所以说向量的加减法就有了几何意义，并且满足<strong>交换律和结合律</strong>。</p>
-<h4 id="数乘"><a href="#数乘" class="headerlink" title="数乘"></a>数乘</h4><p><img src="assets/20220106_225713_6.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<h4 id="数乘"><a href="#数乘" class="headerlink" title="数乘"></a>数乘</h4><p><img src="https://s2.loli.net/2022/06/22/whMx3zCcG6fl4tE.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>规定$\left\lceil 实数\lambda与向量\vec{a}的积 \right\rfloor$为一个向量，这种运算就是<strong>数乘</strong>。记作$\lambda\vec{a}$,并且满足以下性质：</p>
 <ul>
 <li>$|\lambda\vec{a}|=|\lambda||\vec{a}|$；</li>
@@ -360,11 +360,11 @@
 \lambda(\vec{a}+\vec{b})=\lambda\vec{a}+\lambda\vec{b}\\ 
 (-\lambda)\vec{a}=-(\lambda\vec{a})=-\lambda(\vec{a})\\ 
 \lambda(\vec{a}-\vec{b})=\lambda\vec{a}-\lambda\vec{b}</script><p>（<strong>向量的数乘其实就是对向量进行放缩</strong>）</p>
-<h4 id="点积"><a href="#点积" class="headerlink" title="点积"></a>点积</h4><p><img src="assets/20220106_223116_5.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<h4 id="点积"><a href="#点积" class="headerlink" title="点积"></a>点积</h4><p><img src="https://s2.loli.net/2022/06/22/JqSVPzNgcMBXu41.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>向量的点积也叫数量积、内积，向量的点积表示为$\vec{a}·\vec{b}$,是一个实数。计算式为：</p>
 <script type="math/tex; mode=display">
 \vec{a}·\vec{b}=|\vec{a}||\vec{b}|cos\theta(\theta=\left\langle \vec{a},\vec{b} \right\rangle)(\theta表示\vec{a},\vec{b}的夹角)</script><p>三角形恒等变换的推导：</p>
-<p><img src="assets/20220106_161016_1.gif" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="https://s2.loli.net/2022/06/22/b9JAGBfnXql6YSr.gif" srcset="/img/loading.gif" lazyload alt=""></p>
 <script type="math/tex; mode=display">
 \because \vec{a}·\vec{b}=|\vec{a}||\vec{b}|cos\theta\\
 \therefore \vec{a}·\vec{b}=\sqrt{(x_1)^2+(y_1)^2}·\sqrt{(x_2)^2+(y_2)^2}·cos\theta\\
@@ -376,14 +376,14 @@ cos\beta=\dfrac{x_2}{\sqrt{(x_2)^2+(y_2)^2}},sin\beta=\dfrac{y_2}{\sqrt{(x_2)^2+
 <h4 id="叉积"><a href="#叉积" class="headerlink" title="叉积"></a>叉积</h4><p>也叫矢量积，外积。几何意义是两向量由平行四边形法则围成的面积。叉积是一个向量，垂直于原来两个向量所在的平面。（根据叉乘的模是平行四边形的面积我们可以想象，叉乘的结果是一个有方向的面，而面的方向平行于面的法线，所以面的方向垂直于面上任何一个向量），即：</p>
 <script type="math/tex; mode=display">
 |\vec{a} × \vec{b}|=|\vec{a}||\vec{b}|sin\left\langle a,b \right\rangle</script><p>并且，$\vec{a}×\vec{b}=(x_1y_2-x_2y_2)$。</p>
-<p><img src="assets/20220106_170453_2.gif" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="https://s2.loli.net/2022/06/22/jBZAz1YEpVd4Me7.gif" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>叉积是一个有向面积：</p>
 <ul>
 <li>$\vec{a}×\vec{b}=0$，等价于$\vec{a},\vec{b}$，共线（可以反向）；</li>
 <li>$\vec{a}×\vec{b}&gt;0$，$\vec{b}$在$\vec{a}$左侧；</li>
 <li>$\vec{a}×\vec{b}&lt;0$，$\vec{b}$在$\vec{a}$右侧。</li>
 </ul>
-<p><img src="assets/20220106_171816_3.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="https://s2.loli.net/2022/06/22/mT54QSdPBElJMiH.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <h4 id="判断两向量共线"><a href="#判断两向量共线" class="headerlink" title="判断两向量共线"></a>判断两向量共线</h4><p>两个<strong>非零</strong>向量$\vec{a}$与$\vec{b}$共线$\iff$有唯一实数$\lambda$，使得$\vec{b}=\lambda\vec{a}$。由向量的数乘即可得证。</p>
 <p>推论：如果$l$为已经过点A且平行于已知非零向量$\vec{a}$的直线，那么对空间任一点O，点P在直线$l$上的充要条件是存在实数$t$，满足等式：$\vec{OP}=\vec{OA}+t\vec{a}$。</p>
 <p>其中向量$\vec{a}$叫做直线$l$的方向向量。</p>
@@ -411,7 +411,7 @@ cos\beta=\dfrac{x_2}{\sqrt{(x_2)^2+(y_2)^2}},sin\beta=\dfrac{y_2}{\sqrt{(x_2)^2+
 k\vec{a}=(km,kn),k\vec{b}=(kq,kq)</script><h4 id="向量的坐标表示"><a href="#向量的坐标表示" class="headerlink" title="向量的坐标表示"></a>向量的坐标表示</h4><p>已知两点$A(a,b),B(c,d)$,则$\vec{AB}=(c-a,d-b)$。</p>
 <h4 id="平移一点"><a href="#平移一点" class="headerlink" title="平移一点"></a>平移一点</h4><p>将一点$P$沿一定方向平移某单位长度，只需要将要平移的方向和距离组合成一个向量，利用三角形法则，用$\vec{OP}$加上这个向量即可，得到的向量终点即为平移后的点。</p>
 <h4 id="三点共线的判定"><a href="#三点共线的判定" class="headerlink" title="三点共线的判定"></a>三点共线的判定</h4><p>在平面上$A,B,C$三点共线的充要条件是：$\vec{OC}=\lambda\vec{OB}+(1-\lambda)\vec{OA},(O为平面内不与直线AC共线任意一点)$。</p>
-<p><img src="assets/20220110_224933_7.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="https://s2.loli.net/2022/06/22/b4dwjIyLWzkHDia.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>证明：</p>
 <script type="math/tex; mode=display">
 若点B与AC共线，由共线向量定理可知：\vec{AC}=\lambda\vec{AB}\\
