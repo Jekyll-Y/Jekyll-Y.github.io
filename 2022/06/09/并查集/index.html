@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2022/06/09/HCY68tD4GPB7rTO.jpg">
 <meta property="article:published_time" content="2022-06-09T11:50:14.000Z">
-<meta property="article:modified_time" content="2022-06-22T01:01:41.586Z">
+<meta property="article:modified_time" content="2022-06-23T07:24:59.816Z">
 <meta property="article:author" content="Jekyll_Y">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary_large_image">
@@ -524,6 +524,24 @@
             
   <article id="comments" lazyload>
     
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.7.2/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"83a97da1ddd5a7ddbda9","clientSecret":"be12481cbe6a75e5d2440810e3dd32ca784a1a6a","repo":"gitalk-comments","owner":"Jekyll_Y","admin":["Jekyll_Y"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://shielded-brushlands-08810.herokuapp.com/https://github.com/login/oauth/access_token"},
+          {
+            id: 'e8fb89af5945809aef7f9556e9709fe0'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
 
   </article>
 

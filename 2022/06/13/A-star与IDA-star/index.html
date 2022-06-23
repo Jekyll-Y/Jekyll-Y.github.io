@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2022/06/13/fRAybpX1TasKeCx.jpg">
 <meta property="article:published_time" content="2022-06-13T14:56:05.000Z">
-<meta property="article:modified_time" content="2022-06-22T01:01:56.645Z">
+<meta property="article:modified_time" content="2022-06-23T07:24:43.652Z">
 <meta property="article:author" content="Jekyll_Y">
 <meta property="article:tag" content="搜索">
 <meta name="twitter:card" content="summary_large_image">
@@ -505,6 +505,24 @@ f(state)=\displaystyle\sum^{8}_{num=1}(\mid state\_x_{num}-end\_x_{num}\mid+\mid
             
   <article id="comments" lazyload>
     
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.7.2/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"83a97da1ddd5a7ddbda9","clientSecret":"be12481cbe6a75e5d2440810e3dd32ca784a1a6a","repo":"gitalk-comments","owner":"Jekyll_Y","admin":["Jekyll_Y"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://shielded-brushlands-08810.herokuapp.com/https://github.com/login/oauth/access_token"},
+          {
+            id: '61ab546bf0947f611fe690238fb060a3'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
 
   </article>
 
