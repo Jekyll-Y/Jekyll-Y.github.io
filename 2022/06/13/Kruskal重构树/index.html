@@ -16,12 +16,12 @@
   <meta name="author" content="Jekyll_Y">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Kruskal 重构树简介Kruskal重构树其实就是在Kruscal算法进行的过程中，每一次加边都会合并两个集合，我们可以新建一个点，将这个点的点权设为新加的边的权值，同时将两个集合的根节点分别设为新建的点的左儿子和右儿子。然后将两个集合和新建点合并成一个集合。将新建点设为根。 这样建成的一棵二叉树就是Kruskal重构树。 如：  此图的Kruskal重构树如下：  性质  该树满足二叉堆的性">
+    <meta name="description" content="Kruskal 重构树 简介 Kruskal重构树其实就是在Kruscal算法进行的过程中，每一次加边都会合并两个集合，我们可以新建一个点，将这个点的点权设为新加的边的权值，同时将两个集合的根节点分别设为新建的点的左儿子和右儿子。然后将两个集合和新建点合并成一个集合。将新建点设为根。 这样建成的一棵二叉树就是Kruskal重构树。 如：  此图的Kruskal重构树如下：  性质   该树满足二叉">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kruskal重构树">
 <meta property="og:url" content="http://example.com/2022/06/13/Kruskal%E9%87%8D%E6%9E%84%E6%A0%91/index.html">
 <meta property="og:site_name" content="Jekyll_Y的小窝">
-<meta property="og:description" content="Kruskal 重构树简介Kruskal重构树其实就是在Kruscal算法进行的过程中，每一次加边都会合并两个集合，我们可以新建一个点，将这个点的点权设为新加的边的权值，同时将两个集合的根节点分别设为新建的点的左儿子和右儿子。然后将两个集合和新建点合并成一个集合。将新建点设为根。 这样建成的一棵二叉树就是Kruskal重构树。 如：  此图的Kruskal重构树如下：  性质  该树满足二叉堆的性">
+<meta property="og:description" content="Kruskal 重构树 简介 Kruskal重构树其实就是在Kruscal算法进行的过程中，每一次加边都会合并两个集合，我们可以新建一个点，将这个点的点权设为新加的边的权值，同时将两个集合的根节点分别设为新建的点的左儿子和右儿子。然后将两个集合和新建点合并成一个集合。将新建点设为根。 这样建成的一棵二叉树就是Kruskal重构树。 如：  此图的Kruskal重构树如下：  性质   该树满足二叉">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2022/07/14/kfOmIVPFyzKrwxC.jpg">
 <meta property="article:published_time" content="2022-06-13T14:44:55.000Z">
@@ -328,13 +328,16 @@
             
               <div class="markdown-body">
                 
-                <h1 id="Kruskal-重构树"><a href="#Kruskal-重构树" class="headerlink" title="Kruskal 重构树"></a>Kruskal 重构树</h1><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Kruskal重构树其实就是在Kruscal算法进行的过程中，每一次加边都会合并两个集合，我们可以新建一个点，将这个点的点权设为新加的边的权值，同时将两个集合的根节点分别设为新建的点的左儿子和右儿子。然后将两个集合和新建点合并成一个集合。将新建点设为根。</p>
+                <h1>Kruskal 重构树</h1>
+<h3 id="简介">简介</h3>
+<p>Kruskal重构树其实就是在Kruscal算法进行的过程中，每一次加边都会合并两个集合，我们可以新建一个点，将这个点的点权设为新加的边的权值，同时将两个集合的根节点分别设为新建的点的左儿子和右儿子。然后将两个集合和新建点合并成一个集合。将新建点设为根。</p>
 <p>这样建成的一棵二叉树就是Kruskal重构树。</p>
 <p>如：</p>
 <p><img src="https://oi-wiki.org/graph/images/mst5.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>此图的Kruskal重构树如下：</p>
 <p><img src="https://oi-wiki.org/graph/images/mst6.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><blockquote>
+<h3 id="性质">性质</h3>
+<blockquote>
 <ul>
 <li>该树满足二叉堆的性质；</li>
 <li>这颗二叉树的节点个数为$2n-1$ ，深度最大为$n$;</li>
@@ -345,13 +348,15 @@
 <p>因为在加边的时候所有的边都是已经排序过的所以<strong>符合二叉堆</strong>的性质。</p>
 <p>又因为二叉堆的性质所以<strong>Kruskal 重构树上两点之间的 LCA 的权值即为原图中两个点之间的所有简单路径上最大边权的最小值</strong>。</p>
 <p><strong>若求两个点之间的所有简单路径上最小边权的最大值，要建最大生成树</strong>。</p>
-<h3 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h3><p>首先对边排序</p>
+<h3 id="构造">构造</h3>
+<p>首先对边排序</p>
 <p>然后使用并查集辅助加边：</p>
 <p>每新建一条边时，新建一个点，设新建点的权值为新加边的边权，合并集合。</p>
 <p>代码：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">kruskal</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">sort</span>(e+<span class="hljs-number">1</span>,e+m+<span class="hljs-number">1</span>,cmp);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n*<span class="hljs-number">2</span>;i++)f[i]=i;<span class="hljs-comment">// 2n-1个节点</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=m;i++)<br>    &#123;<br>        <span class="hljs-keyword">if</span>(cnt==<span class="hljs-number">2</span>*n<span class="hljs-number">-1</span>)<span class="hljs-keyword">break</span>;<br>        <span class="hljs-type">int</span> x=<span class="hljs-built_in">Find</span>(e[i].u),y=<span class="hljs-built_in">Find</span>(e[i].v);<br>        <span class="hljs-keyword">if</span>(x==y)<span class="hljs-keyword">continue</span>;<br>        cnt++;<br>        f[x]=f[y]=cnt;<br>        tree[cnt].<span class="hljs-built_in">push_back</span>(y);<br>        tree[cnt].<span class="hljs-built_in">push_back</span>(x);<br>        w[cnt]=e[i].c;<br>    &#125;<br>    <span class="hljs-keyword">return</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>时间复杂度$O(nlog_2n)$。</p>
-<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p><strong>Kruskal重构树能够更快有效解决一些静态的树剖问题，而且复杂度还很优秀。 </strong></p>
+<h3 id="应用">应用</h3>
+<p>**Kruskal重构树能够更快有效解决一些静态的树剖问题，而且复杂度还很优秀。 **</p>
 <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/U92652">luogu U92652 【模板】Kruskal重构树</a></p>
 <p>一道板子题（<strong>注意建成的应是一个森林</strong>）。</p>
 <p>代码：</p>
