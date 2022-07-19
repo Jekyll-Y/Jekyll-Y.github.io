@@ -87,7 +87,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#f5a8e4","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"c++"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#f5a8e4","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"c++"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":false,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -349,7 +349,7 @@
 <p>并查集（<s>冰茶姬</s><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mi>i</mi><mi>s</mi><mi>j</mi><mi>o</mi><mi>i</mi><mi>n</mi><mi>t</mi><mo>−</mo><mi>S</mi><mi>e</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">Disjoint-Set</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mord mathnormal">i</span><span class="mord mathnormal">s</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mord mathnormal">o</span><span class="mord mathnormal">i</span><span class="mord mathnormal">n</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal">e</span><span class="mord mathnormal">t</span></span></span></span>）是一种树形的数据结构，它可以处理一些不交集的<strong>合并</strong>以及<strong>查询</strong>问题。主要为两种操作：</p>
 <p><strong>查找</strong>（Find）：确定某个元素处于哪个子集；</p>
 <p><strong>合并</strong>（Merge）：将两个子集合并成一个集合。</p>
-<p><img src="https://oi-wiki.org/ds/images/disjoint-set.svg" srcset="/img/loading.gif" lazyload alt="" /></p>
+<p><img src="https://oi-wiki.org/ds/images/disjoint-set.svg" alt="" /></p>
 <h3 id="初始化"><a class="markdownIt-Anchor" href="#初始化"></a> 初始化</h3>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">makeSet</span><span class="hljs-params">(<span class="hljs-type">int</span> size)</span> </span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; size; i++) fa[i] = i;  <span class="hljs-comment">// i就在它本身的集合里</span><br>  <span class="hljs-keyword">return</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <h3 id="查找"><a class="markdownIt-Anchor" href="#查找"></a> 查找</h3>
@@ -357,7 +357,7 @@
 <p>通俗地讲一个故事：几个家族进行宴会，但是家族普遍长寿，所以人数众多。由于长时间的分离以及年龄的增长，这些人逐渐忘掉了自己的亲人，只记得自己的爸爸是谁了，而最长者（称为「祖先」）的父亲已经去世，他只知道自己是祖先。为了确定自己是哪个家族，他们想出了一个办法，只要问自己的爸爸是不是祖先，一层一层的向上问，直到问到祖先。如果要判断两人是否在同一家族，只要看两人的祖先是不是同一人就可以了。</p>
 </blockquote>
 <p>在这样的思想下，并查集的查找算法诞生了。</p>
-<p><img src="https://oi-wiki.org/ds/images/disjoint-set-find.svg" srcset="/img/loading.gif" lazyload alt="" /></p>
+<p><img src="https://oi-wiki.org/ds/images/disjoint-set-find.svg" alt="" /></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">int</span> fa[MAXN];  <span class="hljs-comment">// 记录某个人的爸爸是谁，特别规定，祖先的爸爸是他自己</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-comment">// 寻找x的祖先</span><br>  <span class="hljs-keyword">if</span> (fa[x] == x)  <span class="hljs-comment">// 如果x是祖先则返回</span><br>    <span class="hljs-keyword">return</span> x;<br>  <span class="hljs-keyword">else</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">find</span>(fa[x]);  <span class="hljs-comment">// 如果不是则x的爸爸问x的爷爷</span><br>&#125;<br></code></pre></td></tr></table></figure>
 <h3 id="路径压缩"><a class="markdownIt-Anchor" href="#路径压缩"></a> 路径压缩</h3>
 <p>一层一层的找父亲效率太低了，所以我们直接<strong>把在路径上的每个节点都直接连接到根上</strong>，这就是路径压缩。</p>
@@ -367,7 +367,7 @@
 <p>宴会上，一个家族的祖先突然对另一个家族说：我们两个家族交情这么好，不如合成一家好了。另一个家族也欣然接受了。</p>
 </blockquote>
 <p>我们之前说过，并不在意祖先究竟是谁，所以只要其中一个祖先变成另一个祖先的儿子就可以了。</p>
-<p><img src="https://oi-wiki.org/ds/images/disjoint-set-merge.svg" srcset="/img/loading.gif" lazyload alt="" /></p>
+<p><img src="https://oi-wiki.org/ds/images/disjoint-set-merge.svg" alt="" /></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">MergeSet</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> </span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-comment">// x 与 y 所在家族合并</span><br>  x = <span class="hljs-built_in">find</span>(x);<br>  y = <span class="hljs-built_in">find</span>(y);<br>  fa[x] = y;  <span class="hljs-comment">// 把 x 的祖先变成 y 的祖先的儿子</span><br>&#125;<br></code></pre></td></tr></table></figure>
 <h3 id="启发式合并"><a class="markdownIt-Anchor" href="#启发式合并"></a> 启发式合并</h3>
 <p>(<s>奇技淫巧</s>)</p>
@@ -559,7 +559,7 @@
             </div>
 
             
-  <article id="comments" lazyload>
+  <article id="comments">
     
   <div id="gitalk-container"></div>
   <script type="text/javascript">
@@ -748,10 +748,6 @@
 
 
 
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
 
 
 
