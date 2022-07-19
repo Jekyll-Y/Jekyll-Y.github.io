@@ -215,7 +215,7 @@
     <link href="/2022/06/11/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/"/>
     <url>/2022/06/11/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<div class="note note-light">            <p id="hitokoto">:D 获取中...</p>          </div><h1>每日总结</h1><h2 id="2022-7-18">2022-7-18</h2><p>今天，学长zh_dou为我们准备了四个非常<s>简单</s>的数论题，结果整寄了  😑</p><p>呜呜呜~ 😭</p><p>T1是一道莫反/容斥，都掌握的不太好，主要还是学到了<a href="https://www.luogu.com.cn/problem/P5495">Dirichlet 前缀和</a>:</p><p>对于已知一个序列 $a$ ，求 一个序列 $b$ ：<br>$$<br>b_k = \sum_{i | k} a_i<br>$$<br>可以在$O(n\log\log n)$的时间复杂度内求出：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=cnt;i++)<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>;j*prime[i]&lt;=n;j++)<br>            b[prime[i]*j]+=b[j];<br></code></pre></td></tr></table></figure><p>T2拓欧+构造，很有意思</p><p>T3神一般的容斥</p><p>T4纯数学题，非常考验数学技巧。</p><p>开始搞数学了🙃</p>]]></content>
     
     
     <categories>
