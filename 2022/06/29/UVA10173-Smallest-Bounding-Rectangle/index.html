@@ -80,6 +80,7 @@
 <link rel="stylesheet" href="/css/scrollAnimation.css">
 <link rel="stylesheet" href="/css/scrollbar.css">
 <link rel="stylesheet" href="/css/indeximg-hover.css">
+<link rel="stylesheet" href="/css/loader.css">
 
 
 
@@ -122,6 +123,12 @@
 
 
 <body>
+  <div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+    <div id="load_title">正在加载中，请稍后</div>
+    </div>
   
 
   <header>
@@ -739,6 +746,12 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
+  <script> 
+
+    window.onload = function () {
+    document.body.className += ' loaded';
+    }
+    </script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {

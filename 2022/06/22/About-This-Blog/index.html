@@ -80,6 +80,7 @@
 <link rel="stylesheet" href="/css/scrollAnimation.css">
 <link rel="stylesheet" href="/css/scrollbar.css">
 <link rel="stylesheet" href="/css/indeximg-hover.css">
+<link rel="stylesheet" href="/css/loader.css">
 
 
 
@@ -122,6 +123,12 @@
 
 
 <body>
+  <div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+    <div id="load_title">正在加载中，请稍后</div>
+    </div>
   
 
   <header>
@@ -421,8 +428,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/06/15/%E9%AB%98%E7%BA%A7%E4%BD%9C%E6%88%98%E8%AE%B0%E5%BD%95/" title="高级作战记录">
-                        <span class="hidden-mobile">高级作战记录</span>
+                      <a href="/2022/06/15/emoji/" title="Emoji">
+                        <span class="hidden-mobile">Emoji</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -720,6 +727,12 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
+  <script> 
+
+    window.onload = function () {
+    document.body.className += ' loaded';
+    }
+    </script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {
