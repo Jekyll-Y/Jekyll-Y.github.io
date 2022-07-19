@@ -49,6 +49,8 @@
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.6/katex.min.css" />
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -450,9 +452,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/06/15/emoji/" title="Emoji">
+                      <a href="/2022/06/22/About-This-Blog/" title="About This Blog">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Emoji</span>
+                        <span class="hidden-mobile">About This Blog</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -460,8 +462,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/06/14/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E5%B0%8F%E8%BD%A6%E5%A4%B4/" title="计算几何小车头">
-                        <span class="hidden-mobile">计算几何小车头</span>
+                      <a href="/2022/06/15/emoji/" title="Emoji">
+                        <span class="hidden-mobile">Emoji</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -543,7 +545,6 @@
 
   
   
-
 
 
 
@@ -735,40 +736,6 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
-
-  
-      <script>
-        if (!window.MathJax) {
-          window.MathJax = {
-            tex    : {
-              inlineMath: { '[+]': [['$', '$']] }
-            },
-            loader : {
-              load: ['ui/lazy']
-            },
-            options: {
-              renderActions: {
-                insertedScript: [200, () => {
-                  document.querySelectorAll('mjx-container').forEach(node => {
-                    let target = node.parentNode;
-                    if (target.nodeName.toLowerCase() === 'li') {
-                      target.parentNode.classList.add('has-jax');
-                    }
-                  });
-                }, '', false]
-              }
-            }
-          };
-        } else {
-          MathJax.startup.document.state(0);
-          MathJax.texReset();
-          MathJax.typeset();
-          MathJax.typesetPromise();
-        }
-      </script>
-    
-
-  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
