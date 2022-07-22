@@ -16,20 +16,20 @@
   <meta name="author" content="Jekyll_Y">
   <meta name="keywords" content="">
   
-    <meta name="description" content=":D 获取中...            每日总结 2022-7-18 今天，学长zh_dou为我们准备了四个非常简单的数论题，结果整寄了  😑 呜呜呜~ 😭 T1是一道莫反&#x2F;容斥，都掌握的不太好，主要还是学到了Dirichlet 前缀和: 对于已知一个序列 $a$ ，求 一个序列 $b$ ： $$ b_k &#x3D; \sum_{i | k} a_i $$ 可以在$O(n\">
+    <meta name="description" content="题解 前置知识              原根                         二项式定理                         单位根            题目 给定 $n,K$，满足$K$ 是 $2$ 的幂，求 $$ \sum_{K\mid i, 0 \le i \le n} \dbinom{n}{i} $$ 对 $998244353$ 取模 。 $1 \le n">
 <meta property="og:type" content="article">
-<meta property="og:title" content="每日总结">
-<meta property="og:url" content="http://example.com/2022/07/18/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:title" content="Loj#6247. 九个太阳">
+<meta property="og:url" content="http://example.com/2022/07/22/Loj-6247-%E4%B9%9D%E4%B8%AA%E5%A4%AA%E9%98%B3/index.html">
 <meta property="og:site_name" content="Jekyll_Y的小窝">
-<meta property="og:description" content=":D 获取中...            每日总结 2022-7-18 今天，学长zh_dou为我们准备了四个非常简单的数论题，结果整寄了  😑 呜呜呜~ 😭 T1是一道莫反&#x2F;容斥，都掌握的不太好，主要还是学到了Dirichlet 前缀和: 对于已知一个序列 $a$ ，求 一个序列 $b$ ： $$ b_k &#x3D; \sum_{i | k} a_i $$ 可以在$O(n\">
+<meta property="og:description" content="题解 前置知识              原根                         二项式定理                         单位根            题目 给定 $n,K$，满足$K$ 是 $2$ 的幂，求 $$ \sum_{K\mid i, 0 \le i \le n} \dbinom{n}{i} $$ 对 $998244353$ 取模 。 $1 \le n">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s2.loli.net/2022/07/19/sgcjSVI9p6PAEQd.jpg">
-<meta property="article:published_time" content="2022-07-18T14:29:03.000Z">
-<meta property="article:modified_time" content="2022-07-22T07:42:52.872Z">
+<meta property="og:image" content="https://s2.loli.net/2022/07/22/G2oclBF96iq5Rtx.jpg">
+<meta property="article:published_time" content="2022-07-22T08:15:43.000Z">
+<meta property="article:modified_time" content="2022-07-22T11:23:10.242Z">
 <meta property="article:author" content="Jekyll_Y">
-<meta property="article:tag" content="每日总结">
+<meta property="article:tag" content="数论">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://s2.loli.net/2022/07/19/sgcjSVI9p6PAEQd.jpg">
+<meta name="twitter:image" content="https://s2.loli.net/2022/07/22/G2oclBF96iq5Rtx.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -37,7 +37,7 @@
   
      <!-- 一言 --> <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script> 
   
-  <title>每日总结 - Jekyll_Y的小窝</title>
+  <title>Loj#6247. 九个太阳 - Jekyll_Y的小窝</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -246,13 +246,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('https://s2.loli.net/2022/07/19/sgcjSVI9p6PAEQd.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('https://s2.loli.net/2022/07/22/G2oclBF96iq5Rtx.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="每日总结"></span>
+            <span id="subtitle" data-typed-text="Loj#6247. 九个太阳"></span>
           
         </div>
 
@@ -268,8 +268,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-07-18 22:29" pubdate>
-          2022年7月18日 晚上
+        <time datetime="2022-07-22 16:15" pubdate>
+          2022年7月22日 下午
         </time>
       </span>
     
@@ -280,7 +280,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          334 字
+          1.6k 字
         
       </span>
     
@@ -291,7 +291,7 @@
         
         
         
-          3 分钟
+          14 分钟
         
       </span>
     
@@ -337,12 +337,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">每日总结</h1>
+            <h1 style="display: none">Loj#6247. 九个太阳</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年7月22日 下午
+                    本文最后更新于：2022年7月22日 晚上
                   
                 
               </p>
@@ -350,30 +350,61 @@
             
               <div class="markdown-body">
                 
-                <div class="note note-light">
-            <p id="hitokoto">:D 获取中...</p>
+                <h1>题解</h1>
+<h2 id="前置知识">前置知识</h2>
+<div>
+            <input type="checkbox" disabled checked="checked">原根
           </div>
-<h1>每日总结</h1>
-<h2 id="2022-7-18">2022-7-18</h2>
-<p>今天，学长zh_dou为我们准备了四个非常<s>简单</s>的数论题，结果整寄了  😑</p>
-<p>呜呜呜~ 😭</p>
-<p>T1是一道莫反/容斥，都掌握的不太好，主要还是学到了<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P5495">Dirichlet 前缀和</a>:</p>
-<p>对于已知一个序列 $a$ ，求 一个序列 $b$ ：<br>
+<div>
+            <input type="checkbox" disabled checked="checked">二项式定理
+          </div>
+<div>
+            <input type="checkbox" disabled checked="checked">单位根
+          </div>
+<h2 id="题目">题目</h2>
+<p>给定 $n,K$，满足$K$ 是 $2$ 的幂，求</p>
+<p>$$<br>
+\sum_{K\mid i, 0 \le i \le n} \dbinom{n}{i}<br>
+$$</p>
+<p>对 $998244353$ 取模 。</p>
+<p>$1 \le n \le 10^{15}, 1\le K \le 2^{20}$ ， 且 $K$ 为$2$ 的幂 。</p>
+<h2 id="思路">思路</h2>
+<p>首先将式子写为 ：</p>
+<p>$$<br>
+\sum_{i=0}^n \dbinom{n}{i} [K \mid i]<br>
+$$</p>
+<p>然后观察式子中的条件🤔 ，可以用单位根反演 ：</p>
+<p>$$<br>
+\frac{1}{n} \sum_{i=0}^{n-1} \omega_n^{x \ast i} = [x \bmod n =0]<br>
+$$</p>
+<p>化简式子为 ：</p>
+<p>$$<br>
+\begin{aligned}</p>
+<p>\sum_{i=0}^n \dbinom{n}{i} [K \mid i]</p>
+<p>&amp;=\sum_{i=0}^n \frac{1}{K} \sum_{j=0}^{K-1} \omega_n^{i \ast j} \dbinom{n}{i} \<br>
+&amp;=\frac{1}{K} \sum_{i=1}^{n} \sum_{j=0}^{K-1} \omega_n^{i \ast j} \dbinom{n}{i} \<br>
+&amp;=\frac{1}{K} \sum_{j=0}^{K-1} \sum_{i=0}^n (\omega_n<sup>{j})</sup>i \dbinom{n}{i}</p>
+<p>\end{aligned}<br>
+$$</p>
+<p>然后观察后面的式子，对其使用二项式定理！</p>
+<p>$$<br>
+(a+b)^n = \sum_{i=0}^n \dbinom{n}{i} a^i b^{n-i}<br>
+$$</p>
+<p>拆分为 ：<br>
 $$<br>
-b_k = \sum_{i | k} a_i<br>
-$$<br>
-可以在$O(n\log\log n)$的时间复杂度内求出：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=cnt;i++)<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>;j*prime[i]&lt;=n;j++)<br>            b[prime[i]*j]+=b[j];<br></code></pre></td></tr></table></figure>
-<p>T2拓欧+构造，很有意思</p>
-<p>T3神一般的容斥</p>
-<p>T4纯数学题，非常考验数学技巧。</p>
-<p>开始搞数学了🙃</p>
-<h2 id="2022-7-19">2022-7-19</h2>
-<p>数论！</p>
-<h2 id="2022-7-20">2022-7-20</h2>
-<p>数论！！</p>
-<h2 id="2022-7-21">2022-7-21</h2>
-<p>数论！！！</p>
+\begin{aligned}<br>
+\frac{1}{K} \sum_{j=0}^{K-1} \sum_{i=0}^n (\omega_n<sup>{j})</sup>i \dbinom{n}{i}<br>
+&amp;=\frac{1}{K} \sum_{j=0}^{K-1} (1+\omega_n<sup>j)</sup>n<br>
+\end{aligned}<br>
+$$</p>
+<p>计算时由于 $998244353 = 2^{23} \times 17 \times 7 +1$  刚好存在原根 $3$</p>
+<div class="note note-success">
+            <p>998244353最优美的性质莫过于它是个完美恶臭数：998244353=( 114514 * ( 54-1+114 * (1+14*5+1+4) ) ) + ( 4+11451 * (4-1-15+14) ) + ( 11+41*54 + (141+541) )  + (4-1-15+14)；之所以称为完美，如果您仔细观察，您会发现每一个括号里114514都出现了正整数次！</p>
+          </div>
+<p>将 $\omega_n$ 设为 $3^{\frac{p-1}{K}}$ 即可</p>
+<p>时间复杂度 $O(n \log n)$</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ll long long </span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> mod=<span class="hljs-number">998244353</span>;<br>ll ans;<br><span class="hljs-function">ll <span class="hljs-title">qpow</span><span class="hljs-params">(ll a,ll b,ll mod)</span></span><br><span class="hljs-function"></span>&#123;<br>    ll t=<span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span>(b!=<span class="hljs-number">0</span>)<br>    &#123;<br>        <span class="hljs-keyword">if</span>(b&amp;<span class="hljs-number">1</span>)t=(t*a)%mod;<br>        a=(a*a)%mod;b&gt;&gt;=<span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> t;<br>&#125;<br><span class="hljs-function">ll <span class="hljs-title">inv</span><span class="hljs-params">(ll x)</span></span>&#123;<span class="hljs-keyword">return</span> (<span class="hljs-built_in">qpow</span>(x,mod<span class="hljs-number">-2</span>,mod)+mod)%mod;&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    ll n,k;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%lld%lld&quot;</span>,&amp;n,&amp;k);<br>    ll wn=<span class="hljs-built_in">qpow</span>(<span class="hljs-number">3</span>,(mod<span class="hljs-number">-1</span>)/k,mod);<br>    <span class="hljs-keyword">for</span>(ll i=<span class="hljs-number">0</span>,c=<span class="hljs-number">1</span>;i&lt;k;i++,c=c*wn%mod)<br>    &#123;<br>        ans=(ans+<span class="hljs-built_in">qpow</span>(<span class="hljs-number">1</span>+c,n,mod))%mod;<br>    &#125;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%lld&quot;</span>,(ans*<span class="hljs-built_in">inv</span>(k)%mod+mod)%mod);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -392,7 +423,7 @@ $$<br>
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/" class="category-chain-item">每日总结</a>
+  <a href="/categories/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
   
   
 
@@ -407,7 +438,7 @@ $$<br>
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%AF%8F%E6%97%A5%E6%80%BB%E7%BB%93/">#每日总结</a>
+        <a href="/tags/%E6%95%B0%E8%AE%BA/">#数论</a>
       
     </div>
   
@@ -419,8 +450,8 @@ $$<br>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>每日总结</div>
-      <div>http://example.com/2022/07/18/每日总结/</div>
+      <div>Loj#6247. 九个太阳</div>
+      <div>http://example.com/2022/07/22/Loj-6247-九个太阳/</div>
     </div>
     <div class="license-meta">
       
@@ -432,7 +463,7 @@ $$<br>
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年7月18日</div>
+          <div>2022年7月22日</div>
         </div>
       
       
@@ -467,18 +498,12 @@ $$<br>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/07/19/%E6%89%A9%E5%B1%95Lucas%E5%AE%9A%E7%90%86/" title="扩展Lucas定理">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">扩展Lucas定理</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/06/29/UVA10173-Smallest-Bounding-Rectangle/" title="UVA10173 Smallest Bounding Rectangle">
-                        <span class="hidden-mobile">UVA10173 Smallest Bounding Rectangle</span>
+                      <a href="/2022/07/21/%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/" title="快速傅里叶变换">
+                        <span class="hidden-mobile">快速傅里叶变换</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -499,7 +524,7 @@ $$<br>
         var options = Object.assign(
           {"clientID":"83a97da1ddd5a7ddbda9","clientSecret":"be12481cbe6a75e5d2440810e3dd32ca784a1a6a","repo":"gitalk-comments.github.io","owner":"Jekyll-Y","admin":["Jekyll-Y"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://shielded-brushlands-08810.herokuapp.com/https://github.com/login/oauth/access_token"},
           {
-            id: 'c1678c1a59a4123c5b64b9965a87fad5'
+            id: 'f4dc529e6623127cd60d6abdb1f30ca6'
           }
         )
         var gitalk = new Gitalk(options);
