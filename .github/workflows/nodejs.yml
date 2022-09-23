@@ -1,0 +1,54 @@
+name: Notebook Deployment
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [10.x]
+
+    steps:
+
+      - name: Deployment Start
+
+        uses: actions/checkout@v1
+
+      - name: Setup Node ${{matrix.node-version}}
+
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{matrix.node-version}}
+
+      - name: Setup Git Env
+
+        env:
+          DEPLOY_KEY: ${{secrets.DEPLOY_KEY}} # 这里写上刚才在 Secret 里面设置的变量名
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$DEPLOY_KEY" > ~/.ssh/id_rsa # 将私钥的全部内容输出到一个文件里面。
+          chmod 600 ~/.ssh/id_rsa # 修改对应私钥文件的权限。
+          ssh-keyscan github.com >> ~/.ssh/known_hosts # 将 Github.com 添加到已知文件列表。
+
+          git config --global user.name "Jekyll-Y" # 设置一下提交的姓名和邮箱。
+          git config --global user.email "2899309225@qq.com"
+
+      - name: Setup Hexo CI
+
+        run: |
+          npm i -g hexo-cli # 全局安装需要的库。
+          npm i
+
+      - name: Setup other package
+
+        run: |
+          npm install
+
+      - name: Deploy
+
+        run: |
+          rm -rf .deploy_git
+          hexo g && hexo deploy # 开始部署
+          rm ~/.ssh/id_rsa
+
