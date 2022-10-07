@@ -32,6 +32,6 @@
     "hexo-theme-landscape": "^0.0.3",
     "inferno": "^7.4.11",
     "inferno-create-element": "^7.4.11",
-    "semver": "^7.3.7"
+    "semver": "^7.3.8"
   }
 }
