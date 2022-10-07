@@ -14,7 +14,7 @@
   "dependencies": {
     "@neilsustc/markdown-it-katex": "^1.0.0",
     "@upupming/hexo-renderer-markdown-it-plus": "^2.0.2",
-    "bulma-stylus": "^0.8.0",
+    "bulma-stylus": "^0.9.1",
     "hexo": "^6.3.0",
     "hexo-component-inferno": "^2.0.1",
     "hexo-deployer-git": "^3.0.0",
